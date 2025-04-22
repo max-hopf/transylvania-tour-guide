@@ -87,8 +87,8 @@ function genImports(variants, base, idx) {
 }
 
 function genExport(idx, names, alt) {
-  // fallback: prefer largest jpeg, then webp
-  const fallback = names.jpeg[names.jpeg.length - 1] || names.webp[names.webp.length - 1] || 'undefined';
+  // fallback: prefer smallest jpeg (400w, then 800w, then 1600w, then original)
+  let fallback = names.jpeg[0] || names.webp[0] || 'undefined';
   return `  {\n    jpeg: [${names.jpeg.join(', ')}],\n    webp: [${names.webp.join(', ')}],\n    fallback: ${fallback},\n    alt: '${alt[idx] || ''}'\n  }`;
 }
 

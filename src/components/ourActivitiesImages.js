@@ -23,7 +23,7 @@ export const images = [
   {
     jpeg: [our_activity_1_400w_jpeg, our_activity_1_800w_jpeg, our_activity_1_1600w_jpeg],
     webp: [our_activity_1_400w_webp, our_activity_1_800w_webp, our_activity_1_1600w_webp],
-    fallback: our_activity_1_1600w_jpeg,
+    fallback: our_activity_1_400w_jpeg,
     alt: 'Activity 1'
   },
   {
@@ -47,7 +47,7 @@ export const images = [
   {
     jpeg: [our_activity_5_400w_jpeg, our_activity_5_800w_jpeg, our_activity_5_1600w_jpeg],
     webp: [our_activity_5_400w_webp, our_activity_5_800w_webp, our_activity_5_1600w_webp],
-    fallback: our_activity_5_1600w_jpeg,
+    fallback: our_activity_5_400w_jpeg,
     alt: 'Activity 5'
   },
   {

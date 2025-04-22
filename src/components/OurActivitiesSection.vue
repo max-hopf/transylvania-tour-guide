@@ -9,8 +9,25 @@
     <div class="activities-grid">
       <div v-for="activity in activities" :key="activity.title" class="activity-card">
         <picture>
-  <source v-if="activity.webp" :srcset="activity.webp" type="image/webp" />
-  <img v-if="activity.img" :src="activity.img" :alt="activity.title" class="activity-img" loading="lazy" />
+  <source
+    v-if="activity.webp && activity.webp.length"
+    :srcset="activity.webp.map((w, i) => w + ' ' + [400, 800, 1600, 1600][i] + 'w').join(', ')"
+    type="image/webp"
+    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+  />
+  <source
+    v-if="activity.jpeg && activity.jpeg.length"
+    :srcset="activity.jpeg.map((j, i) => j + ' ' + [400, 800, 1600, 1600][i] + 'w').join(', ')"
+    type="image/jpeg"
+    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+  />
+  <img
+    v-if="activity.fallback"
+    :src="activity.fallback"
+    :alt="activity.title"
+    class="activity-img"
+    loading="lazy"
+  />
 </picture>
         <div class="activity-info">
           <h3 class="activity-name">{{ activity.title }}</h3>

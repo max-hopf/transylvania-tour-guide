@@ -51,43 +51,43 @@ export const images = [
   {
     jpeg: [blog_post_1_400w_jpeg, blog_post_1_800w_jpeg, blog_post_1_1600w_jpeg, blog_post_1_jpeg],
     webp: [blog_post_1_400w_webp, blog_post_1_800w_webp, blog_post_1_1600w_webp, blog_post_1_webp],
-    fallback: blog_post_1_jpeg,
+    fallback: blog_post_1_400w_jpeg,
     alt: 'Lakeside Camping & Activity'
   },
   {
     jpeg: [blog_post_2_400w_jpeg, blog_post_2_800w_jpeg, blog_post_2_1600w_jpeg, blog_post_2_jpeg],
     webp: [blog_post_2_400w_webp, blog_post_2_800w_webp, blog_post_2_1600w_webp, blog_post_2_webp],
-    fallback: blog_post_2_jpeg,
+    fallback: blog_post_2_400w_jpeg,
     alt: 'Mountain Biking Adventure'
   },
   {
     jpeg: [blog_post_3_400w_jpeg, blog_post_3_800w_jpeg, blog_post_3_1600w_jpeg, blog_post_3_jpeg],
     webp: [blog_post_3_400w_webp, blog_post_3_800w_webp, blog_post_3_1600w_webp, blog_post_3_webp],
-    fallback: blog_post_3_jpeg,
+    fallback: blog_post_3_400w_jpeg,
     alt: 'Family Hiking Day'
   },
   {
     jpeg: [blog_post_4_400w_jpeg, blog_post_4_800w_jpeg, blog_post_4_1600w_jpeg],
     webp: [blog_post_4_400w_webp, blog_post_4_800w_webp, blog_post_4_1600w_webp],
-    fallback: blog_post_4_1600w_jpeg,
+    fallback: blog_post_4_400w_jpeg,
     alt: 'Wildlife Photography Tips'
   },
   {
     jpeg: [blog_post_5_400w_jpeg, blog_post_5_800w_jpeg, blog_post_5_1600w_jpeg],
     webp: [blog_post_5_400w_webp, blog_post_5_800w_webp, blog_post_5_1600w_webp],
-    fallback: blog_post_5_1600w_jpeg,
+    fallback: blog_post_5_400w_jpeg,
     alt: 'Kayaking on the River'
   },
   {
     jpeg: [blog_post_6_400w_jpeg, blog_post_6_800w_jpeg, blog_post_6_1600w_jpeg],
     webp: [blog_post_6_400w_webp, blog_post_6_800w_webp, blog_post_6_1600w_webp],
-    fallback: blog_post_6_1600w_jpeg,
+    fallback: blog_post_6_400w_jpeg,
     alt: 'Forest Survival Skills'
   },
   {
     jpeg: [blog_post_7_400w_jpeg, blog_post_7_800w_jpeg, blog_post_7_1600w_jpeg],
     webp: [blog_post_7_400w_webp, blog_post_7_800w_webp, blog_post_7_1600w_webp],
-    fallback: blog_post_7_1600w_jpeg,
+    fallback: blog_post_7_400w_jpeg,
     alt: 'Stargazing Nights'
   }
 ];
