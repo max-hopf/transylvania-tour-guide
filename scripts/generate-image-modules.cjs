@@ -24,7 +24,16 @@ const groups = [
       'Activity 1', 'Activity 2', 'Activity 3', 'Activity 4', 'Activity 5', 'Activity 6'
     ]
   },
-  // Add more groups as needed
+  {
+    prefix: 'hero-img-',
+    jsPath: '../src/components/heroImages.js',
+    alt: ['Adventure in Transylvania']
+  },
+  {
+    prefix: 'ttg-logo-',
+    jsPath: '../src/components/logoImages.js',
+    alt: ['Transylvania Tour Guide Logo']
+  },
 ];
 
 const assetDir = path.join(__dirname, '../src/assets');
@@ -35,11 +44,17 @@ function getImageVariants(prefix, idx) {
   const base = `${prefix}${idx+1}`;
   const variants = { jpeg: [], webp: [] };
   for (const size of sizes) {
-    for (const fmt of formats) {
-      const file = `${base}-${size}.${fmt}`;
+    // jpeg: check .jpeg, .jpg, .png
+    for (const ext of ['jpeg', 'jpg', 'png']) {
+      const file = `${base}-${size}.${ext}`;
       if (fs.existsSync(path.join(assetDir, file))) {
-        variants[fmt].push(`../assets/${file}`);
+        variants.jpeg.push(`../assets/${file}`);
       }
+    }
+    // webp as before
+    const webpFile = `${base}-${size}.webp`;
+    if (fs.existsSync(path.join(assetDir, webpFile))) {
+      variants.webp.push(`../assets/${webpFile}`);
     }
   }
   // Add original: check for .jpg, .jpeg, .png

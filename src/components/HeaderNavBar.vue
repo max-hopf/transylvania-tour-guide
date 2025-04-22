@@ -3,7 +3,25 @@
     <nav class="navbar">
     
       <div class="logo-title">
-        <img :src="logoSrc" alt="Logo" class="logo" />
+        <picture>
+  <source v-if="logoImages[0].webp && logoImages[0].webp.length"
+    :srcset="logoImages[0].webp.map((w, i) => w + ' ' + [400, 800, 1600][i] + 'w').join(', ')"
+    type="image/webp"
+    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+  />
+  <source v-if="logoImages[0].jpeg && logoImages[0].jpeg.length"
+    :srcset="logoImages[0].jpeg.map((j, i) => j + ' ' + [400, 800, 1600][i] + 'w').join(', ')"
+    type="image/png"
+    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+  />
+  <img
+    v-if="logoImages[0].fallback"
+    :src="logoImages[0].fallback"
+    alt="Transylvania Tour Guide Logo"
+    class="logo"
+    loading="lazy"
+  />
+</picture>
         <span class="site-title">Transylvania Tour Guide</span>
       </div>
       <transition name="fade">
@@ -37,7 +55,7 @@
 </template>
 
 <script setup>
-import logoSrc from '../assets/ttg-logo.png';
+import { images as logoImages } from './logoImages.js';
 import { ref, onMounted, computed, onUnmounted } from 'vue';
 
 const menuItems = [

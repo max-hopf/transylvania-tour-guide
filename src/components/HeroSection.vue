@@ -2,8 +2,23 @@
   <section class="hero-section" id="hero">
     <HeaderNavBar />
     <picture>
-  <source :srcset="heroImgWebp" type="image/webp" />
-  <img class="hero-bg" :src="heroImg" alt="Adventure in Transylvania" loading="lazy" />
+  <source v-if="heroImages[0].webp && heroImages[0].webp.length"
+    :srcset="heroImages[0].webp.map((w, i) => w + ' ' + [400, 800, 1600][i] + 'w').join(', ')"
+    type="image/webp"
+    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+  />
+  <source v-if="heroImages[0].jpeg && heroImages[0].jpeg.length"
+    :srcset="heroImages[0].jpeg.map((j, i) => j + ' ' + [400, 800, 1600][i] + 'w').join(', ')"
+    type="image/jpeg"
+    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+  />
+  <img
+    v-if="heroImages[0].fallback"
+    class="hero-bg"
+    :src="heroImages[0].fallback"
+    :alt="heroImages[0].alt"
+    loading="lazy"
+  />
 </picture>
     <div class="hero-overlay">
       <div class="hero-content">
@@ -19,8 +34,7 @@
 </template>
 
 <script setup>
-import heroImg from '../assets/hero-img.jpg';
-import heroImgWebp from '../assets/hero-img.webp';
+import { images as heroImages } from './heroImages.js';
 import HeaderNavBar from './HeaderNavBar.vue';
 </script>
 
