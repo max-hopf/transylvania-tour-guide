@@ -61,7 +61,7 @@ import { useRouter } from 'vue-router';
 const showAll = ref(false);
 const router = useRouter();
 
-import { blogImages } from './blogImages.js';
+import { images as blogImages } from './blogImages.js';
 
 const blogPosts = [
   {

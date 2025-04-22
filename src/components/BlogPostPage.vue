@@ -23,7 +23,7 @@ import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
 
-import { blogImages } from './blogImages.js';
+import { images as blogImages } from './blogImages.js';
 
 const blogPosts = [
   {

@@ -42,9 +42,25 @@ function getImageVariants(prefix, idx) {
       }
     }
   }
-  // Add original
-  variants.jpeg.push(`../assets/${base}.jpg`);
-  variants.webp.push(`../assets/${base}.webp`);
+  // Add original: check for .jpg, .jpeg, .png
+  const originalExts = ['jpg', 'jpeg', 'png'];
+  let foundOriginal = false;
+  for (const ext of originalExts) {
+    const file = `${base}.${ext}`;
+    if (fs.existsSync(path.join(assetDir, file))) {
+      variants.jpeg.push(`../assets/${file}`);
+      foundOriginal = true;
+      break;
+    }
+  }
+  // webp original
+  const webpOrig = `${base}.webp`;
+  if (fs.existsSync(path.join(assetDir, webpOrig))) {
+    variants.webp.push(`../assets/${webpOrig}`);
+  }
+  if (!foundOriginal) {
+    console.warn(`WARNING: No original image found for ${base} (tried .jpg, .jpeg, .png)`);
+  }
   return variants;
 }
 

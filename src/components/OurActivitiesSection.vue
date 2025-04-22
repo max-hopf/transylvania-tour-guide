@@ -22,7 +22,7 @@
 </template>
 
 <script setup>
-import { activitiesImages } from './ourActivitiesImages.js';
+import { images as activitiesImages } from './ourActivitiesImages.js';
 
 const activities = [
   {
