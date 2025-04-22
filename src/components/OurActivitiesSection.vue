@@ -9,7 +9,7 @@
     <div class="activities-grid">
       <div v-for="activity in activities" :key="activity.title" class="activity-card">
         <picture>
-  <source :srcset="activity.img.replace(/\.(jpg|png)$/,'') + '.webp'" type="image/webp" />
+  <source :srcset="activity.webp" type="image/webp" />
   <img :src="activity.img" :alt="activity.title" class="activity-img" loading="lazy" />
 </picture>
         <div class="activity-info">
@@ -22,41 +22,42 @@
 </template>
 
 <script setup>
-import activityImg1 from '../assets/our-activity-1.jpg';
-import activityImg2 from '../assets/our-activity-2.png';
-import activityImg3 from '../assets/our-activity-3.png';
-import activityImg4 from '../assets/our-activity-4.png';
-import activityImg5 from '../assets/our-activity-5.jpg';
-import activityImg6 from '../assets/our-activity-6.png';
+import { activitiesImages } from './ourActivitiesImages.js';
 
 const activities = [
   {
-    img: activityImg1,
+    img: activitiesImages[0].img,
+    webp: activitiesImages[0].webp,
     title: 'Mountain Hiking',
     desc: 'Explore breathtaking mountain trails with our expert guides.'
   },
   {
-    img: activityImg2,
+    img: activitiesImages[1].img,
+    webp: activitiesImages[1].webp,
     title: 'Cultural Tours',
     desc: 'Discover Transylvania’s rich history and vibrant culture.'
   },
   {
-    img: activityImg3,
+    img: activitiesImages[2].img,
+    webp: activitiesImages[2].webp,
     title: 'Wildlife Watching',
     desc: 'Experience the thrill of spotting rare wildlife in their natural habitat.'
   },
   {
-    img: activityImg4,
+    img: activitiesImages[3].img,
+    webp: activitiesImages[3].webp,
     title: 'Cave Adventures',
     desc: 'Uncover the mysteries of Transylvania’s spectacular caves.'
   },
   {
-    img: activityImg5,
+    img: activitiesImages[4].img,
+    webp: activitiesImages[4].webp,
     title: 'Cycling Tours',
     desc: 'Enjoy scenic cycling routes for all skill levels.'
   },
   {
-    img: activityImg6,
+    img: activitiesImages[5].img,
+    webp: activitiesImages[5].webp,
     title: 'Village Experiences',
     desc: 'Immerse yourself in authentic village life and traditions.'
   },

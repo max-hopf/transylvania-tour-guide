@@ -15,8 +15,8 @@
         :aria-label="'Read blog post: ' + post.title"
       >
         <picture>
-  <source :srcset="post.image.replace(/\.(jpg|png)$/,'') + '.webp'" type="image/webp" />
-  <img :src="post.image" :alt="post.title" class="blog-img" loading="lazy" />
+  <source :srcset="post.webp" type="image/webp" />
+  <img :src="post.img" :alt="post.title" class="blog-img" loading="lazy" />
 </picture>
         <div class="blog-meta">
           <span class="blog-date">{{ post.date }}</span>
@@ -40,13 +40,7 @@ import { useRouter } from 'vue-router';
 const showAll = ref(false);
 const router = useRouter();
 
-import blogImg1 from '../assets/blog-post-1.jpg';
-import blogImg2 from '../assets/blog-post-2.jpg';
-import blogImg3 from '../assets/blog-post-3.jpg';
-import blogImg4 from '../assets/blog-post-4.jpg';
-import blogImg5 from '../assets/blog-post-5.jpg';
-import blogImg6 from '../assets/blog-post-6.jpg';
-import blogImg7 from '../assets/blog-post-7.jpg';
+import { blogImages } from './blogImages.js';
 
 const blogPosts = [
   {
@@ -54,7 +48,8 @@ const blogPosts = [
     title: 'Lakeside Camping & Activity',
     date: 'May 31, 2024',
     summary: 'Lorem ipsum dolor sit amvcxonsectsdsa eleitur adipiscing elit, sed do eiusmod temr incididunt ut labore et dolore magna aliqua.',
-    image: blogImg1,
+    img: blogImages[0].img,
+    webp: blogImages[0].webp,
     content: 'Full content for blog post 1.'
   },
   {
@@ -62,7 +57,8 @@ const blogPosts = [
     title: 'Mountain Biking Adventure',
     date: 'June 5, 2024',
     summary: 'Experience the thrill of mountain biking through scenic trails and breathtaking landscapes.',
-    image: blogImg2,
+    img: blogImages[1].img,
+    webp: blogImages[1].webp,
     content: 'Full content for blog post 2.'
   },
   {
@@ -70,7 +66,8 @@ const blogPosts = [
     title: 'Family Hiking Day',
     date: 'June 12, 2024',
     summary: 'A perfect day out for families to explore nature and enjoy the great outdoors together.',
-    image: blogImg3,
+    img: blogImages[2].img,
+    webp: blogImages[2].webp,
     content: 'Full content for blog post 3.'
   },
   {
@@ -78,7 +75,8 @@ const blogPosts = [
     title: 'Wildlife Photography Tips',
     date: 'June 18, 2024',
     summary: 'Capture stunning wildlife shots with these essential photography tips from our experts.',
-    image: blogImg4,
+    img: blogImages[3].img,
+    webp: blogImages[3].webp,
     content: 'Full content for blog post 4.'
   },
   {
@@ -86,7 +84,8 @@ const blogPosts = [
     title: 'Kayaking on the River',
     date: 'June 22, 2024',
     summary: 'Join us for an exhilarating kayaking adventure down the river.',
-    image: blogImg5,
+    img: blogImages[4].img,
+    webp: blogImages[4].webp,
     content: 'Full content for blog post 5.'
   },
   {
@@ -94,7 +93,8 @@ const blogPosts = [
     title: 'Forest Survival Skills',
     date: 'June 28, 2024',
     summary: 'Learn essential survival skills for your next forest adventure.',
-    image: blogImg6,
+    img: blogImages[5].img,
+    webp: blogImages[5].webp,
     content: 'Full content for blog post 6.'
   },
   {
@@ -102,7 +102,8 @@ const blogPosts = [
     title: 'Stargazing Nights',
     date: 'July 2, 2024',
     summary: 'Discover the wonders of the night sky with our guided stargazing tours.',
-    image: blogImg7,
+    img: blogImages[6].img,
+    webp: blogImages[6].webp,
     content: 'Full content for blog post 7.'
   }
 ];
