@@ -50,25 +50,32 @@ function getImageVariants(prefix, idx) {
 
 function genImports(variants, base, idx) {
   let imports = '';
-  let names = [];
+  let names = { jpeg: [], webp: [] };
   for (const fmt of formats) {
-    for (let i=0; i<sizes.length; ++i) {
-      const varName = `${base}${idx+1}_${sizes[i]}`.replace(/-/g, '_');
-      imports += `import ${varName} from '${variants[fmt][i]}';\n`;
-      names.push(varName);
+    for (let i = 0; i < sizes.length; ++i) {
+      const file = variants[fmt][i];
+      if (!file) continue;
+      const varName = `${base}${idx+1}_${sizes[i]}_${fmt}`.replace(/-/g, '_');
+      imports += `import ${varName} from '${file}';\n`;
+      names[fmt].push(varName);
     }
     // original
-    const origVar = `${base}${idx+1}`.replace(/-/g, '_');
-    imports += `import ${origVar} from '${variants[fmt][sizes.length]}';\n`;
-    names.push(origVar);
+    const fileOrig = variants[fmt][sizes.length];
+    if (fileOrig) {
+      const origVar = `${base}${idx+1}_${fmt}`.replace(/-/g, '_');
+      imports += `import ${origVar} from '${fileOrig}';\n`;
+      names[fmt].push(origVar);
+    }
   }
   return { imports, names };
 }
 
 function genExport(idx, names, alt) {
-  // jpeg: 0-3, webp: 4-7, fallback: 3, alt: alt[idx]
-  return `  {\n    jpeg: [${names.slice(0,4).join(', ')}],\n    webp: [${names.slice(4,8).join(', ')}],\n    fallback: ${names[3]},\n    alt: '${alt[idx] || ''}'\n  }`;
+  // fallback: prefer largest jpeg, then webp
+  const fallback = names.jpeg[names.jpeg.length - 1] || names.webp[names.webp.length - 1] || 'undefined';
+  return `  {\n    jpeg: [${names.jpeg.join(', ')}],\n    webp: [${names.webp.join(', ')}],\n    fallback: ${fallback},\n    alt: '${alt[idx] || ''}'\n  }`;
 }
+
 
 function generateModule(group) {
   let imports = '';
