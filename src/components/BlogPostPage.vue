@@ -2,7 +2,10 @@
   <section class="blogpost-section">
     <button class="back-btn" @click="goBack">← Back to Blog</button>
     <div v-if="post" class="blogpost-content">
-      <img :src="post.image" :alt="post.title" class="blogpost-img" />
+      <picture>
+  <source :srcset="post.webp" type="image/webp" />
+  <img :src="post.img" :alt="post.title" class="blogpost-img" loading="lazy" />
+</picture>
       <span class="blogpost-date">{{ post.date }}</span>
       <h2 class="blogpost-title">{{ post.title }}</h2>
       <p class="blogpost-body">{{ post.content }}</p>
@@ -20,62 +23,63 @@ import { useRoute, useRouter } from 'vue-router';
 const route = useRoute();
 const router = useRouter();
 
-import blogImg1 from '../assets/blog-post-1.jpg';
-import blogImg2 from '../assets/blog-post-2.jpg';
-import blogImg3 from '../assets/blog-post-3.jpg';
-import blogImg4 from '../assets/blog-post-4.jpg';
-import blogImg5 from '../assets/blog-post-5.jpg';
-import blogImg6 from '../assets/blog-post-6.jpg';
-import blogImg7 from '../assets/blog-post-7.jpg';
+import { blogImages } from './blogImages.js';
 
 const blogPosts = [
   {
     id: 1,
     title: 'Lakeside Camping & Activity',
     date: 'May 31, 2024',
-    image: blogImg1,
+    img: blogImages[0].img,
+    webp: blogImages[0].webp,
     content: 'Full content for blog post 1.'
   },
   {
     id: 2,
     title: 'Mountain Biking Adventure',
     date: 'June 5, 2024',
-    image: blogImg2,
+    img: blogImages[1].img,
+    webp: blogImages[1].webp,
     content: 'Full content for blog post 2.'
   },
   {
     id: 3,
     title: 'Family Hiking Day',
     date: 'June 12, 2024',
-    image: blogImg3,
+    img: blogImages[2].img,
+    webp: blogImages[2].webp,
     content: 'Full content for blog post 3.'
   },
   {
     id: 4,
     title: 'Wildlife Photography Tips',
     date: 'June 18, 2024',
-    image: blogImg4,
+    img: blogImages[3].img,
+    webp: blogImages[3].webp,
     content: 'Full content for blog post 4.'
   },
   {
     id: 5,
     title: 'Kayaking on the River',
     date: 'June 22, 2024',
-    image: blogImg5,
+    img: blogImages[4].img,
+    webp: blogImages[4].webp,
     content: 'Full content for blog post 5.'
   },
   {
     id: 6,
     title: 'Forest Survival Skills',
     date: 'June 28, 2024',
-    image: blogImg6,
+    img: blogImages[5].img,
+    webp: blogImages[5].webp,
     content: 'Full content for blog post 6.'
   },
   {
     id: 7,
     title: 'Stargazing Nights',
     date: 'July 2, 2024',
-    image: blogImg7,
+    img: blogImages[6].img,
+    webp: blogImages[6].webp,
     content: 'Full content for blog post 7.'
   }
 ];
