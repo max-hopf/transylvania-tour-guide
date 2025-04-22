@@ -10,6 +10,7 @@ import BlogSection from './components/BlogSection.vue';
 
 <template>
   <router-view />
+  <div>Hello from App.vue!</div>
 </template>
 
 
