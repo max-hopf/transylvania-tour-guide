@@ -20,8 +20,14 @@ jobs:
         with:
           node-version: 18
 
+      - name: Install webp CLI tools
+        run: sudo apt-get update && sudo apt-get install -y webp
+
       - name: Install dependencies
         run: npm ci
+
+      - name: Convert images to WebP
+        run: bash scripts/convert-to-webp.sh
 
       - name: Build
         run: npm run build

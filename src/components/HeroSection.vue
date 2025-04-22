@@ -1,7 +1,10 @@
 <template>
   <section class="hero-section" id="hero">
     <HeaderNavBar />
-    <img class="hero-bg" :src="heroImg" alt="Adventure in Transylvania" />
+    <picture>
+  <source :srcset="heroImgWebp" type="image/webp" />
+  <img class="hero-bg" :src="heroImg" alt="Adventure in Transylvania" loading="lazy" />
+</picture>
     <div class="hero-overlay">
       <div class="hero-content">
         <h1 class="hero-title">Adventure Awaits in Transylvania</h1>
@@ -17,6 +20,7 @@
 
 <script setup>
 import heroImg from '../assets/hero-img.jpg';
+import heroImgWebp from '../assets/hero-img.webp';
 import HeaderNavBar from './HeaderNavBar.vue';
 </script>
 

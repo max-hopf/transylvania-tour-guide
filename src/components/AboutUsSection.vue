@@ -12,8 +12,14 @@
         <button class="about-btn">Read More</button>
       </div>
       <div class="about-images">
-        <img :src="aboutImg1" alt="Hiking in Transylvania" class="about-img about-img-left" />
-        <img :src="aboutImg2" alt="Discovering nature" class="about-img about-img-right" />
+        <picture>
+  <source :srcset="aboutImg1Webp" type="image/webp" />
+  <img :src="aboutImg1" :alt="'Hiking in Transylvania'" class="about-img about-img-left" loading="lazy" />
+</picture>
+<picture>
+  <source :srcset="aboutImg2Webp" type="image/webp" />
+  <img :src="aboutImg2" :alt="'Discovering nature'" class="about-img about-img-right" loading="lazy" />
+</picture>
       </div>
     </div>
   </section>
@@ -22,6 +28,8 @@
 <script setup>
 import aboutImg1 from '../assets/about-us-1.png';
 import aboutImg2 from '../assets/about-us-2.png';
+import aboutImg1Webp from '../assets/about-us-1.webp';
+import aboutImg2Webp from '../assets/about-us-2.webp';
 </script>
 
 <style scoped>

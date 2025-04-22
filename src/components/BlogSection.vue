@@ -14,7 +14,10 @@
         role="button"
         :aria-label="'Read blog post: ' + post.title"
       >
-        <img :src="post.image" :alt="post.title" class="blog-img" />
+        <picture>
+  <source :srcset="post.image.replace(/\.(jpg|png)$/,'') + '.webp'" type="image/webp" />
+  <img :src="post.image" :alt="post.title" class="blog-img" loading="lazy" />
+</picture>
         <div class="blog-meta">
           <span class="blog-date">{{ post.date }}</span>
           <h3 class="blog-card-title">{{ post.title }}</h3>
