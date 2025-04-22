@@ -9,8 +9,8 @@
     <div class="activities-grid">
       <div v-for="activity in activities" :key="activity.title" class="activity-card">
         <picture>
-  <source :srcset="activity.webp" type="image/webp" />
-  <img :src="activity.img" :alt="activity.title" class="activity-img" loading="lazy" />
+  <source v-if="activity.webp" :srcset="activity.webp" type="image/webp" />
+  <img v-if="activity.img" :src="activity.img" :alt="activity.title" class="activity-img" loading="lazy" />
 </picture>
         <div class="activity-info">
           <h3 class="activity-name">{{ activity.title }}</h3>

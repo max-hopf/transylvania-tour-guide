@@ -15,30 +15,21 @@
         :aria-label="'Read blog post: ' + post.title"
       >
         <picture>
-  <source
-    :srcset="`
-      ${blogImages[idx].webp[0]} 400w,
-      ${blogImages[idx].webp[1]} 800w,
-      ${blogImages[idx].webp[2]} 1600w,
-      ${blogImages[idx].webp[3]} 2000w
-    `"
-    type="image/webp"
-    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-  />
-  <img
-    :src="blogImages[idx].fallback"
-    :srcset="`
-      ${blogImages[idx].jpeg[0]} 400w,
-      ${blogImages[idx].jpeg[1]} 800w,
-      ${blogImages[idx].jpeg[2]} 1600w,
-      ${blogImages[idx].jpeg[3]} 2000w
-    `"
-    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-    :alt="blogImages[idx].alt"
-    class="blog-img"
-    loading="lazy"
-  />
-</picture>
+          <source
+            v-if="blogImages[idx].webp && blogImages[idx].webp.length"
+            :srcset="blogImages[idx].webp.map((w, i) => w + ' ' + [400, 800, 1600][i] + 'w').join(', ')"
+            type="image/webp"
+            sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+          />
+          <img
+            v-if="blogImages[idx].fallback"
+            :src="blogImages[idx].fallback"
+            :srcset="blogImages[idx].jpeg ? blogImages[idx].jpeg.map((j, i) => j + ' ' + [400, 800, 1600][i] + 'w').join(', ') : null"
+            :alt="blogImages[idx].alt || post.title"
+            class="blog-img"
+            loading="lazy"
+          />
+        </picture>
         <div class="blog-meta">
           <span class="blog-date">{{ post.date }}</span>
           <h3 class="blog-card-title">{{ post.title }}</h3>

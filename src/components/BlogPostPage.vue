@@ -3,8 +3,8 @@
     <button class="back-btn" @click="goBack">← Back to Blog</button>
     <div v-if="post" class="blogpost-content">
       <picture>
-  <source :srcset="post.webp" type="image/webp" />
-  <img :src="post.img" :alt="post.title" class="blogpost-img" loading="lazy" />
+  <source v-if="post.webp" :srcset="post.webp" type="image/webp" />
+  <img v-if="post.img" :src="post.img" :alt="post.title" class="blogpost-img" loading="lazy" />
 </picture>
       <span class="blogpost-date">{{ post.date }}</span>
       <h2 class="blogpost-title">{{ post.title }}</h2>
