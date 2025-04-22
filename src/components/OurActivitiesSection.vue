@@ -41,44 +41,29 @@
 <script setup>
 import { images as activitiesImages } from './ourActivitiesImages.js';
 
-const activities = [
-  {
-    img: activitiesImages[0].img,
-    webp: activitiesImages[0].webp,
-    title: 'Mountain Hiking',
-    desc: 'Explore breathtaking mountain trails with our expert guides.'
-  },
-  {
-    img: activitiesImages[1].img,
-    webp: activitiesImages[1].webp,
-    title: 'Cultural Tours',
-    desc: 'Discover Transylvania’s rich history and vibrant culture.'
-  },
-  {
-    img: activitiesImages[2].img,
-    webp: activitiesImages[2].webp,
-    title: 'Wildlife Watching',
-    desc: 'Experience the thrill of spotting rare wildlife in their natural habitat.'
-  },
-  {
-    img: activitiesImages[3].img,
-    webp: activitiesImages[3].webp,
-    title: 'Cave Adventures',
-    desc: 'Uncover the mysteries of Transylvania’s spectacular caves.'
-  },
-  {
-    img: activitiesImages[4].img,
-    webp: activitiesImages[4].webp,
-    title: 'Cycling Tours',
-    desc: 'Enjoy scenic cycling routes for all skill levels.'
-  },
-  {
-    img: activitiesImages[5].img,
-    webp: activitiesImages[5].webp,
-    title: 'Village Experiences',
-    desc: 'Immerse yourself in authentic village life and traditions.'
-  },
+const titles = [
+  'Mountain Hiking',
+  'Cultural Tours',
+  'Wildlife Watching',
+  'Cave Adventures',
+  'Cycling Tours',
+  'Village Experiences',
 ];
+
+const descs = [
+  'Explore breathtaking mountain trails with our expert guides.',
+  'Discover Transylvania’s rich history and vibrant culture.',
+  'Experience the thrill of spotting rare wildlife in their natural habitat.',
+  'Uncover the mysteries of Transylvania’s spectacular caves.',
+  'Enjoy scenic cycling routes for all skill levels.',
+  'Immerse yourself in authentic village life and traditions.',
+];
+
+const activities = activitiesImages.map((imgObj, idx) => ({
+  ...imgObj,
+  title: titles[idx],
+  desc: descs[idx],
+}));
 </script>
 
 <style scoped>
