@@ -112,11 +112,11 @@ html {
 .header-navbar {
   background: rgba(30, 30, 30, 0.122);
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
-  position: fixed;
+  position: absolute;
   top: 0;
-  left: 0;
+  left: 0; 
   width: 100vw;
-  z-index: 2000;
+  z-index: 2000;  
   margin: 0;
   padding: 0;
   transition: background 0.35s cubic-bezier(.4,0,.2,1);

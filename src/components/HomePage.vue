@@ -5,6 +5,7 @@
   <TestimonialsSection />
   <BlogSection />
   <FooterSection />
+  <BackToTopButton />
 </template>
 
 <script setup>
@@ -14,6 +15,7 @@ import OurActivitiesSection from './OurActivitiesSection.vue';
 import TestimonialsSection from './TestimonialsSection.vue';
 import BlogSection from './BlogSection.vue';
 import FooterSection from './FooterSection.vue';
+import BackToTopButton from './BackToTopButton.vue';
 </script>
 
 <style scoped>

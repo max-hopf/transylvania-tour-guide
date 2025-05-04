@@ -1,4 +1,5 @@
 <script setup>
+import BackToTopButton from './components/BackToTopButton.vue';
 // import HeaderNavBar from './components/HeaderNavBar.vue';
 // import HeroSection from './components/HeroSection.vue';
 // import FooterSection from './components/FooterSection.vue';
@@ -11,6 +12,7 @@
 
 <template>
   <router-view />
+  <BackToTopButton />
 </template>
 
 <style scoped>
