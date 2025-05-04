@@ -1,4 +1,5 @@
 <template>
+  <div class="parallax-hero-bg"></div>
   <section class="blog-section" id="blog">
     <div class="blog-label">
       Our Blogs <span class="blog-label-line"></span>
@@ -139,7 +140,7 @@ function goToPost(id) {
 <style scoped>
 .blog-section {
   padding: 8rem 0 4rem 0;
-  background: #f6f9fc;
+  background: transparent;
   text-align: center;
 }
 .blog-label {

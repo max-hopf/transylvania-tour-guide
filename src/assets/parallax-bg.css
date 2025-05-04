@@ -1,0 +1,24 @@
+/* Parallax background for activities and blog sections using hero image */
+.parallax-hero-bg {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  z-index: -1;
+  background-image: url('../assets/hero-img-1.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  opacity: 0.28;
+  pointer-events: none;
+  transition: opacity 0.3s;
+}
+
+@media (max-width: 900px) {
+  .parallax-hero-bg {
+    background-attachment: scroll;
+    height: 60vh;
+  }
+}

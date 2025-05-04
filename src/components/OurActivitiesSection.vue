@@ -1,4 +1,5 @@
 <template>
+  <div class="parallax-hero-bg"></div>
   <section class="activities-section" id="activities">
     <!-- <h2 class="activities-title">Our Activities</h2> -->
     <div class="activity-label">
@@ -68,7 +69,7 @@ const activities = activitiesImages.map((imgObj, idx) => ({
 
 <style scoped>
 .activities-section {
-  background: #fff;
+  background: transparent;
   padding: 8rem 1rem 4rem 1rem;
   text-align: center;
 }
