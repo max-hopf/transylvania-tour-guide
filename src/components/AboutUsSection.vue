@@ -1,5 +1,5 @@
 <template>
-  <section class="about-us-section" id="about">
+  <section class="about-us-section fade-slide-init fade-slide-left" id="about" ref="aboutSectionRef">
     <div class="about-container">
       <div class="about-text">
         <div class="about-label">
@@ -26,10 +26,50 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import aboutImg1 from '../assets/about-us-1.png';
 import aboutImg2 from '../assets/about-us-2.png';
 import aboutImg1Webp from '../assets/about-us-1.webp';
 import aboutImg2Webp from '../assets/about-us-2.webp';
+
+const aboutSectionRef = ref(null);
+let observer = null;
+
+onMounted(() => {
+  const el = aboutSectionRef.value;
+  const triggerAnimation = () => {
+    if (el && !el.classList.contains('fade-slide-in')) {
+      el.classList.add('fade-slide-in');
+    }
+  };
+
+  // Check if already visible on mount
+  if (el) {
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      setTimeout(triggerAnimation, 200); // short delay for effect
+      return;
+    }
+  }
+
+  observer = new window.IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        triggerAnimation();
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.25 }
+  );
+  if (el) {
+    observer.observe(el);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect();
+});
 </script>
 
 <style scoped>

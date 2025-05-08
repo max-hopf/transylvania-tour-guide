@@ -1,6 +1,6 @@
 <template>
   <div class="parallax-hero-bg"></div>
-  <section class="blog-section" id="blog">
+  <section class="blog-section fade-slide-init fade-slide-right" id="blog" ref="blogSectionRef">
     <div class="blog-label">
       Our Blogs <span class="blog-label-line"></span>
     </div>
@@ -52,7 +52,7 @@
 </template>
 
 <script setup>
-import { ref, computed } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import { useRouter } from 'vue-router';
 
 const showAll = ref(false);
@@ -135,6 +135,44 @@ function toggleAllPosts() {
 function goToPost(id) {
   router.push({ name: 'BlogPost', params: { id } });
 }
+const blogSectionRef = ref(null);
+let observer = null;
+
+onMounted(() => {
+  const el = blogSectionRef.value;
+  const triggerAnimation = () => {
+    if (el && !el.classList.contains('fade-slide-in')) {
+      el.classList.add('fade-slide-in');
+    }
+  };
+
+  // Check if already visible on mount
+  if (el) {
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      setTimeout(triggerAnimation, 200); // short delay for effect
+      return;
+    }
+  }
+
+  observer = new window.IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        triggerAnimation();
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.25 }
+  );
+  if (el) {
+    observer.observe(el);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect();
+});
 </script>
 
 <style scoped>

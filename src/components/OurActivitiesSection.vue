@@ -1,6 +1,6 @@
 <template>
   <div class="parallax-hero-bg"></div>
-  <section class="activities-section" id="activities">
+  <section class="activities-section fade-slide-init fade-slide-right" id="activities" ref="activitiesSectionRef">
     <!-- <h2 class="activities-title">Our Activities</h2> -->
     <div class="activity-label">
       Our Activities <span class="activity-label-line"></span>
@@ -40,6 +40,7 @@
 </template>
 
 <script setup>
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { images as activitiesImages } from './ourActivitiesImages.js';
 
 const titles = [
@@ -65,6 +66,44 @@ const activities = activitiesImages.map((imgObj, idx) => ({
   title: titles[idx],
   desc: descs[idx],
 }));
+const activitiesSectionRef = ref(null);
+let observer = null;
+
+onMounted(() => {
+  const el = activitiesSectionRef.value;
+  const triggerAnimation = () => {
+    if (el && !el.classList.contains('fade-slide-in')) {
+      el.classList.add('fade-slide-in');
+    }
+  };
+
+  // Check if already visible on mount
+  if (el) {
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      setTimeout(triggerAnimation, 200); // short delay for effect
+      return;
+    }
+  }
+
+  observer = new window.IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        triggerAnimation();
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.25 }
+  );
+  if (el) {
+    observer.observe(el);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect();
+});
 </script>
 
 <style scoped>

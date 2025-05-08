@@ -1,5 +1,5 @@
 <template>
-  <section class="testimonials-section" id="testimonials">
+  <section class="testimonials-section fade-slide-init fade-slide-left" id="testimonials" ref="testimonialsSectionRef">
     <div class="testimonials-label">
       Testimonials <span class="testimonials-label-line"></span>
     </div>
@@ -39,7 +39,7 @@
 </template>
 
 <script setup>
-import { ref } from 'vue';
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const testimonials = [
   {
@@ -76,6 +76,44 @@ const testimonials = [
 
 const selectedIdx = ref(0);
 const selectTestimonial = idx => selectedIdx.value = idx;
+const testimonialsSectionRef = ref(null);
+let observer = null;
+
+onMounted(() => {
+  const el = testimonialsSectionRef.value;
+  const triggerAnimation = () => {
+    if (el && !el.classList.contains('fade-slide-in')) {
+      el.classList.add('fade-slide-in');
+    }
+  };
+
+  // Check if already visible on mount
+  if (el) {
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      setTimeout(triggerAnimation, 200); // short delay for effect
+      return;
+    }
+  }
+
+  observer = new window.IntersectionObserver(
+    ([entry]) => {
+      if (entry.isIntersecting) {
+        triggerAnimation();
+        observer.disconnect();
+      }
+    },
+    { threshold: 0.25 }
+  );
+  if (el) {
+    observer.observe(el);
+  }
+});
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect();
+});
 </script>
 
 
