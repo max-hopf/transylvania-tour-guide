@@ -146,6 +146,7 @@ onMounted(() => {
     }
   };
 
+  // On all screens, use IntersectionObserver for animation
   // Check if already visible on mount
   if (el) {
     const rect = el.getBoundingClientRect();
@@ -163,7 +164,7 @@ onMounted(() => {
         observer.disconnect();
       }
     },
-    { threshold: 0.25 }
+    { threshold: window.innerWidth <= 750 ? 0.01 : 0.25 }
   );
   if (el) {
     observer.observe(el);
