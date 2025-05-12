@@ -192,6 +192,9 @@ onBeforeUnmount(() => {
   .activities-grid {
     gap: 1rem;
   }
+  .activities-section {
+  padding: 4rem 1rem 4rem 1rem;
+  }
 }
 @media (max-width: 600px) {
   .activities-grid {

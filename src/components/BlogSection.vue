@@ -274,6 +274,7 @@ onBeforeUnmount(() => {
 
 @media (max-width: 900px) {
   .blog-section {
+    padding-top: 4rem;
     padding-left: 1rem;
     padding-right: 1rem;
   }
