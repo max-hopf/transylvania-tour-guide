@@ -1,25 +1,7 @@
 <template>
   <section class="hero-section" id="hero">
     <HeaderNavBar />
-    <picture>
-  <source v-if="heroImages[0].webp && heroImages[0].webp.length"
-    :srcset="heroImages[0].webp.map((w, i) => w + ' ' + [400, 800, 1600][i] + 'w').join(', ')"
-    type="image/webp"
-    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-  />
-  <source v-if="heroImages[0].jpeg && heroImages[0].jpeg.length"
-    :srcset="heroImages[0].jpeg.map((j, i) => j + ' ' + [400, 800, 1600][i] + 'w').join(', ')"
-    type="image/jpeg"
-    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-  />
-  <img
-    v-if="heroImages[0].fallback"
-    class="hero-bg"
-    :src="heroImages[0].fallback"
-    :alt="heroImages[0].alt"
-    loading="lazy"
-  />
-</picture>
+    <!-- <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div> -->
     <div class="hero-overlay">
       <div class="hero-content">
         <h1 class="hero-title">Adventure Awaits in Transylvania</h1>
@@ -60,15 +42,38 @@ import HeaderNavBar from './HeaderNavBar.vue';
   min-height: 100svh;
 }
 
+.parallax-hero-bg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: 1;
+  will-change: transform;
+  /* Parallax effect */
+  transform: translateZ(0) scale(1.1);
+  /* fallback for browsers not supporting background-attachment: fixed */
+  background-attachment: fixed;
+}
+
+@media (max-width: 900px) {
+  .parallax-hero-bg {
+    background-attachment: scroll;
+    min-height: 80vh;
+    height: auto;
+  }
+}
+
   .hero-title {
     font-size: 1.2rem;
   }
   .hero-subtitle {
     font-size: 0.95rem;
   }
-  .hero-bg {
-    height: 55vh;
-  }
+
   .hero-actions {
     flex-direction: column;
     gap: 0.5rem;
@@ -78,15 +83,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
     padding: 0.7rem 1.1rem;
   }
 
-.hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  object-fit: cover;
-  z-index: 1;
-}
+
 
 .hero-overlay {
   position: absolute;
@@ -155,10 +152,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
     padding-bottom: 16px;
     box-sizing: border-box;
   }
-  .hero-bg {
-    min-height: 80vh;
-    height: auto;
-  }
+
   .hero-overlay {
     min-height: 80vh;
     height: auto;
@@ -209,10 +203,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
     padding-bottom: 16px;
     box-sizing: border-box;
   }
-  .hero-bg {
-    min-height: 100svh;
-    height: auto;
-  }
+
   .hero-overlay {
     min-height: 100svh;
     height: auto;
