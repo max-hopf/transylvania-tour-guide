@@ -1,5 +1,5 @@
 <template>
-  <div class="parallax-hero-bg"></div>
+  <!-- <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div> -->
   <section class="activities-section fade-slide-init fade-slide-right" id="activities" ref="activitiesSectionRef">
     <!-- <h2 class="activities-title">Our Activities</h2> -->
     <div class="activity-label">
@@ -42,6 +42,7 @@
 <script setup>
 import { ref, onMounted, onBeforeUnmount } from 'vue';
 import { images as activitiesImages } from './ourActivitiesImages.js';
+import { images as heroImages } from './heroImages.js';
 
 const titles = [
   'Mountain Hiking',

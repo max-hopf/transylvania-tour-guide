@@ -1,5 +1,5 @@
 <template>
-  <div class="parallax-hero-bg"></div>
+  <!-- <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div> -->
   <section class="blog-section fade-slide-init fade-slide-right" id="blog" ref="blogSectionRef">
     <div class="blog-label">
       Our Blogs <span class="blog-label-line"></span>
@@ -59,6 +59,7 @@ const showAll = ref(false);
 const router = useRouter();
 
 import { images as blogImages } from './blogImages.js';
+import { images as heroImages } from './heroImages.js';
 
 const blogPosts = [
   {

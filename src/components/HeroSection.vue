@@ -2,7 +2,7 @@
   <section class="hero-section" id="hero">
     <HeaderNavBar />
     <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div>
-    <div class="hero-overlay">
+    <!-- <div class="hero-overlay"> -->
       <div class="hero-content">
         <h1 class="hero-title">Adventure Awaits in Transylvania</h1>
         <p class="hero-subtitle">Find Hidden Gems and Plan Your Next Journey</p>
@@ -13,7 +13,7 @@
           <button class="cta-btn secondary">Read more</button>
         </div>
       </div>
-    </div>
+    <!-- </div> -->
   </section>
 </template>
 
@@ -42,7 +42,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
   min-height: 100svh;
 }
 
-.parallax-hero-bg {
+/* .parallax-hero-bg {
   position: absolute;
   top: 0;
   left: 0;
@@ -53,11 +53,11 @@ import HeaderNavBar from './HeaderNavBar.vue';
   background-repeat: no-repeat;
   z-index: 1;
   will-change: transform;
-  /* Parallax effect */
+   
   transform: translateZ(0) scale(1.1);
-  /* fallback for browsers not supporting background-attachment: fixed */
+  fallback for browsers not supporting background-attachment: fixed   
   background-attachment: fixed;
-}
+} */
 
 @media (max-width: 900px) {
   .parallax-hero-bg {
@@ -83,20 +83,18 @@ import HeaderNavBar from './HeaderNavBar.vue';
     padding: 0.7rem 1.1rem;
   }
 
-
-
-.hero-overlay {
+/* .hero-overlay {
   position: absolute;
   top: 0;
   left: 0;
   width: 100vw;
   height: 100vh;
-  background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 100%);
+ background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 100%);
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-}
+} */
 
 .hero-content {
   color: #fff;
