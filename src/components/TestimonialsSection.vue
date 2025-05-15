@@ -135,7 +135,7 @@ onBeforeUnmount(() => {
 }
 .testimonials-label {
   font-size: 1.05rem;
-  color: #e08a1e;
+  color: var(--color-primary-text);
   font-weight: 600;
   margin-bottom: 0.7rem;
   display: flex;
@@ -147,7 +147,7 @@ onBeforeUnmount(() => {
   display: inline-block;
   height: 2px;
   width: 36px;
-  background: #e08a1e;
+  background: var(--color-primary-text);
   border-radius: 2px;
 }
 .testimonials-title {
@@ -182,7 +182,7 @@ onBeforeUnmount(() => {
   transition: border-color 0.2s, opacity 0.2s;
 }
 .avatar.active {
-  border-color: #e08a1e;
+  border-color: var(--color-primary);
   opacity: 1;
 }
 

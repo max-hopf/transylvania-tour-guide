@@ -1,7 +1,7 @@
 <template>
   <section class="hero-section" id="hero">
     <HeaderNavBar />
-    <!-- <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div> -->
+    <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div>
     <div class="hero-overlay">
       <div class="hero-content">
         <h1 class="hero-title">Adventure Awaits in Transylvania</h1>
@@ -121,8 +121,8 @@ import HeaderNavBar from './HeaderNavBar.vue';
   justify-content: center;
 }
 .cta-btn {
-  background: #e08a1e;
-  color: #fff;
+  background: var(--color-primary);
+  color: #181818;
   font-weight: 600;
   border: none;
   border-radius: 1.5rem;
@@ -141,7 +141,8 @@ import HeaderNavBar from './HeaderNavBar.vue';
   border: 1.5px solid #fff;
 }
 .cta-btn:hover {
-  background: #d1770e;
+  /* background: #d1770e; */
+  filter: brightness(1.12);
 }
 
 @media (max-width: 900px) {

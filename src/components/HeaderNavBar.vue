@@ -195,7 +195,7 @@ html {
 .site-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #e08a1e;
+  color: var(--color-primary);
 }
 .nav-menu {
   display: flex;
@@ -212,7 +212,7 @@ html {
   transition: color 0.2s;
 }
 .nav-menu a:hover {
-  color: #e08a1e;
+  color: var(--color-primary-text);
 }
 @media (max-width: 900px) {
   .navbar {
@@ -243,7 +243,7 @@ html {
     transition: color 0.2s;
   }
   .nav-menu-overlay a:hover {
-    color: #e08a1e;
+    color: var(--color-primary);
   }
 }
 @media (max-width: 600px) {

@@ -100,7 +100,7 @@ onBeforeUnmount(() => {
 
 .about-label {
   font-size: 1.05rem;
-  color: #e08a1e;
+  color: var(--color-primary-text);
   font-weight: 600;
   margin-bottom: 0.6rem;
   display: flex;
@@ -112,7 +112,7 @@ onBeforeUnmount(() => {
   display: inline-block;
   height: 2px;
   width: 36px;
-  background: #e08a1e;
+  background: var(--color-primary-text);
   border-radius: 2px;
 }
 
@@ -131,12 +131,12 @@ onBeforeUnmount(() => {
 }
 
 .about-btn {
-  background: #e08a1e;
-  color: #fff;
+  background: var(--color-primary);
+  color: #181818;
   font-weight: 600;
   border: none;
   border-radius: 24px;
-  padding: 0.75rem 2.2rem;
+  padding: 1rem 2rem;
   font-size: 1.1rem;
   cursor: pointer;
   margin-top: 0.5rem;
@@ -145,7 +145,7 @@ onBeforeUnmount(() => {
 }
 
 .about-btn:hover {
-  background: #d1770e;
+  filter: brightness(1.12);
 }
 
 .about-images {

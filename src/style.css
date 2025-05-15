@@ -1,17 +1,29 @@
 :root {
+  /* Typography */
   font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
+  /* Color Scheme */
   color-scheme: light dark;
   color: rgba(255, 255, 255, 0.87);
   background-color: #242424;
 
+  /* Brand Colors */
+  --color-primary: #ffa800;
+  --color-primary-text: #E08600;
+  --color-primary-contrast: #222;
+  --color-on-primary: #fff;
+
+  /* Add more variables as needed for secondary, background, etc. */
+
+  /* Rendering */
   font-synthesis: none;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
 }
+
 
 a {
   font-weight: 500;

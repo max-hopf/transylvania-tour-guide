@@ -184,7 +184,7 @@ onBeforeUnmount(() => {
 }
 .blog-label {
   font-size: 1.05rem;
-  color: #e08a1e;
+  color: var(--color-primary-text);
   font-weight: 600;
   margin-bottom: 0.7rem;
   display: flex;
@@ -196,7 +196,7 @@ onBeforeUnmount(() => {
   display: inline-block;
   height: 2px;
   width: 36px;
-  background: #e08a1e;
+  background: var(--color-primary-text);
   border-radius: 2px;
 }
 .blog-title {
@@ -241,7 +241,7 @@ onBeforeUnmount(() => {
   text-align: left;
 }
 .blog-date {
-  color: #ffb300;
+  color: var(--color-primary-text);
   font-weight: 600;
   font-size: 1rem;
 }

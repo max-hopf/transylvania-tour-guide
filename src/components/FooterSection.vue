@@ -90,8 +90,8 @@
 
 <style scoped>
 .footer-section {
-  background: #dfdfdf;
-  color: #d3d3d3;
+  background: #222222;
+  color: #fff;
   font-family: 'Montserrat', Arial, sans-serif;
 }
 .footer-columns {
@@ -113,7 +113,7 @@
   font-size: 1.1rem;
   font-weight: 700;
   margin-bottom: 1rem;
-  color: #b37700;
+  color: var(--color-primary-text);
 }
 .footer-links,
 .footer-contact,
@@ -130,13 +130,13 @@
 }
 .footer-links a,
 .footer-anpc a {
-  color: #1b1b1b;
+  color: #fff;
   text-decoration: none;
   transition: color 0.18s;
 }
 .footer-links a:hover,
 .footer-anpc a:hover {
-  color: #ffb300;
+  color: var(--color-primary-text);
 }
 .footer-icon {
   display: flex;
@@ -153,13 +153,13 @@
   display: flex;
   align-items: center;
   gap: 0.7rem;
-  color: #1b1b1b;
+  color: #fff;
   text-decoration: none;
   transition: color 0.18s;
 }
 .footer-contact-link:hover,
 .footer-contact-link:focus {
-  color: #ffb300;
+  color: var(--color-primary-text);
   outline: none;
 }
 
@@ -192,11 +192,11 @@
   align-items: center;
   gap: 0.5rem;
   font-size: 1rem;
-  color: #e0e0e0;
+  color: #fff;
 }
 .footer-made {
   font-size: 0.98rem;
-  color: #ffb300;
+  color: var(--color-primary-text);
 }
 @media (max-width: 900px) {
   .footer-columns {
