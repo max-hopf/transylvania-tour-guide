@@ -11,7 +11,10 @@
 
   /* Brand Colors */
   --color-primary: #ffa800;
-  --color-primary-text: #E08600;
+  --color-primary-text: #ffa800;
+  /* --color-primary: #ffa800;
+  --color-primary-text: #E08600; */
+  --color-navbar-text: #000;
   --color-primary-contrast: #222;
   --color-on-primary: #fff;
 

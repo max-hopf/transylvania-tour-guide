@@ -110,7 +110,7 @@ html {
   scroll-behavior: smooth;
 }
 .header-navbar {
-  background: rgba(30, 30, 30, 0.122);
+  background: rgba(255, 255, 255, 0.14);
   box-shadow: 0 2px 8px rgba(0,0,0,0.04);
   position: absolute;
   top: 0;
@@ -124,7 +124,7 @@ html {
 .header-navbar .site-title,
 .header-navbar .nav-menu a,
 .header-navbar .nav-menu-overlay a {
-  color: #fff;
+  color: var(--color-navbar-text);
   transition: color 0.28s cubic-bezier(.4,0,.2,1);
 }
 .header-navbar.scrolled .site-title,
@@ -195,7 +195,7 @@ html {
 .site-title {
   font-size: 1.5rem;
   font-weight: bold;
-  color: var(--color-primary);
+  color: var(--color-navbar-text);
 }
 .nav-menu {
   display: flex;
@@ -206,14 +206,31 @@ html {
   transition: opacity 0.3s;
 }
 .nav-menu a {
+  position: relative;
   text-decoration: none;
-  color: #fff;
+  color: var(--color-navbar-text);
   font-weight: 500;
   transition: color 0.2s;
+}
+.nav-menu a::after {
+  content: '';
+  position: absolute;
+  left: 50%;
+  bottom: -5px;
+  transform: translateX(-50%) scaleX(0);
+  transform-origin: center;
+  width: 100%;
+  height: 2px;
+  background: var(--color-primary-text);
+  transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+}
+.nav-menu a:hover::after {
+  transform: translateX(-50%) scaleX(1);
 }
 .nav-menu a:hover {
   color: var(--color-primary-text);
 }
+
 @media (max-width: 900px) {
   .navbar {
     flex-direction: row;
@@ -237,14 +254,31 @@ html {
     padding: 4rem 0 0 0;
   }
   .nav-menu-overlay a {
+    position: relative;
     text-decoration: none;
     color: #333;
     font-weight: 500;
     transition: color 0.2s;
   }
+  .nav-menu-overlay a::after {
+    content: '';
+    position: absolute;
+    left: 50%;
+    bottom: -5px;
+    transform: translateX(-50%) scaleX(0);
+    transform-origin: center;
+    width: 100%;
+    height: 2px;
+    background: var(--color-primary);
+    transition: transform 0.6s cubic-bezier(.4,0,.2,1);
+  }
+  .nav-menu-overlay a:hover::after {
+    transform: translateX(-50%) scaleX(1);
+  }
   .nav-menu-overlay a:hover {
     color: var(--color-primary);
   }
+  
 }
 @media (max-width: 600px) {
   .navbar {

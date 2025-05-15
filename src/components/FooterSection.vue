@@ -59,9 +59,12 @@
       <!-- ANPC & Payments -->
       <div class="footer-col">
         <h4 class="footer-title">ANPC & Payments</h4>
-        <a href="https://anpc.ro/ce-este-anpc/" target="_blank" rel="noopener">
-          <img src="/src/assets/anpc-logo.png" alt="ANPC Logo" class="anpc-logo" />
-        </a>
+          <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">
+            <img src="/src/assets/anpc-sal.svg" alt="ANPC Alternative Dispute Resolution" style="width:250px;max-width:100%;margin-top:8px;" />
+          </a>
+          <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">
+            <img src="/src/assets/anpc-sol.svg" alt="ANPC SOL - Online Dispute Resolution" style="width:250px;max-width:100%;margin-top:8px;" />
+          </a>
         <!-- <ul class="footer-anpc">
           <li><a href="https://anpc.ro/ce-este-anpc/" target="_blank" rel="noopener">Client Rights</a></li>
           <li><a href="https://anpc.ro/obligatii-clienti/" target="_blank" rel="noopener">Client Obligations</a></li>
