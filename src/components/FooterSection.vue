@@ -189,13 +189,20 @@
   background-color: #1b1b1b;
   margin-top: 2rem;
   padding-top: 1rem;
+  padding-left: 2rem;
+  padding-right: 2rem;
   padding-bottom: 1rem;
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
   align-items: center;
+  justify-content: space-between;
   gap: 0.5rem;
   font-size: 1rem;
   color: #fff;
+  box-sizing: border-box;
+  width: 100%;
+  margin-left: auto;
+  margin-right: auto;
 }
 .footer-made {
   font-size: 0.98rem;
@@ -212,11 +219,6 @@
     width: 100%;
     margin-bottom: 1.1rem;
   }
-  .footer-bottom {
-    font-size: 0.97rem;
-    text-align: center;
-    padding-top: 0.7rem;
-  }
 }
 @media (max-width: 600px) {
   .footer-section {
@@ -227,6 +229,13 @@
   }
   .footer-bottom {
     font-size: 0.91rem;
+  }
+  .footer-bottom {
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    text-align: center;
   }
 }
 </style>
