@@ -42,23 +42,6 @@ import HeaderNavBar from './HeaderNavBar.vue';
   min-height: 100svh;
 }
 
-/* .parallax-hero-bg {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
-  z-index: 1;
-  will-change: transform;
-  transform: translateZ(0) scale(1.1);
-  fallback for browsers not supporting background-attachment: fixed 
-  background-attachment: fixed;
-} */
-
-
   .hero-title {
     font-size: 1.2rem;
   }
@@ -74,19 +57,6 @@ import HeaderNavBar from './HeaderNavBar.vue';
     font-size: 0.95rem;
     padding: 0.7rem 1.1rem;
   }
-
-/* .hero-overlay {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100vw;
-  height: 100vh;
- background: linear-gradient(180deg, rgba(0,0,0,0.4) 0%, rgba(0,0,0,0.3) 100%);
-  z-index: 2;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-} */
 
 .hero-content {
   color: #fff;
