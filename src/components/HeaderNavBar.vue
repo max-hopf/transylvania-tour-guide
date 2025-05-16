@@ -168,9 +168,10 @@ html {
   margin: 0 auto;
 }
 .hamburger-menu:focus, .hamburger-menu:focus-visible {
-  outline: 2px solid var(--color-navbar-text);
-  outline-offset: 0.5px;
-  border-radius: 0.5em;
+  outline: none;
+  /* outline: 1px solid #606060;
+  outline-offset: 1px;
+  border-radius: 0.5em; */
 }
 @media (max-width: 900px) {
   .hamburger-menu {
@@ -264,7 +265,7 @@ html {
     max-height: 100vh;
     overflow-y: auto;
     background-color:rgb(243, 243, 243);
-    padding: 2rem 0 0 0;
+    padding: 4rem 0 2rem 0;
     display: flex;
     flex-direction: column;
     align-items: stretch;
