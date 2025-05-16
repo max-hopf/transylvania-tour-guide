@@ -50,8 +50,8 @@ onUnmounted(() => {
 
 .back-to-top-btn {
   position: fixed;
-  right: 3.5rem;
-  bottom: 2.2rem;
+  right: 3rem;
+  bottom: 3rem;
   width: 64px;
   height: 64px;
   border-radius: 50%;
@@ -81,5 +81,12 @@ onUnmounted(() => {
 }
 .fade-enter-to, .fade-leave-from {
   opacity: 1;
+}
+
+@media (max-width: 900px) {
+  .back-to-top-btn {
+    right: 1rem;
+    bottom: 1rem;
+  }
 }
 </style>
