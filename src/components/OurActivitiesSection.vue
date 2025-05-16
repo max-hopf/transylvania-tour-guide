@@ -9,7 +9,12 @@
 
     <div class="activities-grid">
       <div v-for="activity in activities" :key="activity.title" class="activity-card">
-        <picture>
+        <div class="activity-days-badge">
+          <span class="days-number">{{ activity.durationValue }}</span>
+          <span class="days-label">{{ activity.durationLabel }}</span>
+        </div>
+        <div class="activity-img-wrapper">
+  <picture>
   <source
     v-if="activity.webp && activity.webp.length"
     :srcset="activity.webp.map((w, i) => w + ' ' + [400, 800, 1600, 1600][i] + 'w').join(', ')"
@@ -30,6 +35,7 @@
     loading="lazy"
   />
 </picture>
+</div>
         <div class="activity-info">
           <h3 class="activity-name">{{ activity.title }}</h3>
           <p class="activity-desc">{{ activity.desc }}</p>
@@ -62,10 +68,21 @@ const descs = [
   'Immerse yourself in authentic village life and traditions.',
 ];
 
+// Example durations for each activity (customize as needed)
+const durations = [
+  { value: 3, label: 'days' },
+  { value: 2, label: 'days' },
+  { value: 5, label: 'hours' },
+  { value: 1, label: 'week' },
+  { value: 4, label: 'days' },
+  { value: 2, label: 'weeks' },
+];
 const activities = activitiesImages.map((imgObj, idx) => ({
   ...imgObj,
   title: titles[idx],
   desc: descs[idx],
+  durationValue: durations[idx].value,
+  durationLabel: durations[idx].label,
 }));
 const activitiesSectionRef = ref(null);
 let observer = null;
@@ -201,11 +218,80 @@ onBeforeUnmount(() => {
   .activities-grid {
     gap: 0.7rem;
   }
-  .activity-img {
-    height: 210px;
-  }
   .activity-title {
     font-size: 1.6rem;
   }
 }
+.activity-days-badge {
+  position: absolute;
+  top: 180px;
+  right: 2rem;
+  background: #fff;
+  border: 3px solid rgba(208, 208, 208, 0.83);
+  outline: 4px solid #fff;
+  color: #222222;
+  width: 4rem;
+  height: 4rem;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-weight: bold;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.07);
+  z-index: 2;
+}
+.days-number {
+  font-size: 1.4rem;
+  line-height: 1;
+}
+.days-label {
+  font-size: 1rem;
+  font-weight: 400;
+  color: #444;
+  margin-top: -2px;
+}
+.activity-card {
+  position: relative;
+  background: #fff;
+  border-radius: 1rem;
+  box-shadow: 0 2px 1rem rgba(0,0,0,0.07);
+  border: 2.5px solid #edeaf7;
+  max-width: 350px;
+  min-width: 270px;
+  cursor: pointer;
+  overflow: hidden;
+  transition: transform 0.18s, box-shadow 0.18s;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  padding: 0.2rem 0.2rem 0 0.2rem;
+}
+.activity-card:hover {
+  transform: translateY(-7px) scale(1.03);
+  box-shadow: 0 6px 24px rgba(0,0,0,0.12);
+}
+.activity-img-wrapper {
+  width: 100%;
+  height: 210px;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  overflow: hidden;
+  border-radius: 1rem;
+  border: 4px solid #fff;
+}
+
+.activity-img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 1rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.06);
+  background: #fff;
+  display: block;
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
 </style>
