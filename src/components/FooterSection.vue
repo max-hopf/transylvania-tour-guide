@@ -60,20 +60,21 @@
       <div class="footer-col">
         <h4 class="footer-title">ANPC & Payments</h4>
           <a href="https://anpc.ro/ce-este-sal/" target="_blank" rel="noopener">
-            <img src="/src/assets/anpc-sal.svg" alt="ANPC Alternative Dispute Resolution" style="width:250px;max-width:100%;margin-top:8px;" />
+            <img src="/src/assets/anpc-sal.svg" alt="ANPC Alternative Dispute Resolution" class="anpc-logo" style="width:250px;max-width:100%;margin-top:8px;" />
           </a>
           <a href="https://ec.europa.eu/consumers/odr" target="_blank" rel="noopener">
-            <img src="/src/assets/anpc-sol.svg" alt="ANPC SOL - Online Dispute Resolution" style="width:250px;max-width:100%;margin-top:8px;" />
+            <img src="/src/assets/anpc-sol.svg" alt="ANPC SOL - Online Dispute Resolution" class="anpc-logo" style="width:250px;max-width:100%;margin-top:8px;" />
           </a>
         <!-- <ul class="footer-anpc">
           <li><a href="https://anpc.ro/ce-este-anpc/" target="_blank" rel="noopener">Client Rights</a></li>
           <li><a href="https://anpc.ro/obligatii-clienti/" target="_blank" rel="noopener">Client Obligations</a></li>
         </ul> -->
         <div class="footer-payments">
-          <!-- <img src="/assets/visa.svg" alt="Visa" class="payment-icon" />
-          <img src="/assets/mastercard.svg" alt="Mastercard" class="payment-icon" />
-          <img src="/assets/paypal.svg" alt="PayPal" class="payment-icon" /> -->
-        </div>
+  <img src="/src/assets/payment-options/Visa.svg" alt="Visa" class="payment-icon" />
+  <img src="/src/assets/payment-options/Mastercard.svg" alt="Mastercard" class="payment-icon" />
+  <img src="/src/assets/payment-options/PayPal.svg" alt="PayPal" class="payment-icon" />
+  <img src="/src/assets/payment-options/Google-Pay.svg" alt="Google Pay" class="payment-icon" />
+</div>
       </div>
     </div>
     <div class="footer-bottom">
@@ -171,6 +172,10 @@
   height: auto;
   margin-bottom: 0.7rem;
   display: block;
+  transition: transform 0.15s;
+}
+.anpc-logo:hover {
+  transform: scale(1.08);
 }
 .footer-payments {
   margin-top: 0.7rem;
@@ -178,12 +183,13 @@
   gap: 0.7rem;
 }
 .payment-icon {
-  width: 36px;
-  height: 24px;
+  width: 3rem;
+  height: 2rem;
   object-fit: contain;
   background: #fff;
-  border-radius: 4px;
-  padding: 2px 4px;
+  border-radius: 0.5rem;
+  padding: 2px 2px;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.03);
 }
 .footer-bottom {
   background-color: #1b1b1b;
