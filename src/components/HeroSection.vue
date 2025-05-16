@@ -4,14 +4,9 @@
     <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div>
     <!-- <div class="hero-overlay"> -->
       <div class="hero-content">
-        <h1 class="hero-title">Adventure Awaits in Transylvania</h1>
-        <p class="hero-subtitle">Find Hidden Gems and Plan Your Next Journey</p>
-        <div class="hero-actions">
-          <button class="cta-btn"><span class="footer-icon">
-        <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-icon"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
-      </span>Call us +40 123 456 789</button>
-          <button class="cta-btn secondary">Read more</button>
-        </div>
+        <div class="hero-top-text">Let's Make Your Best Trip Ever</div>
+        <h1 class="hero-title">Welcome to Transylvania!</h1>
+        <div class="hero-phone-number cta-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call-icon lucide-phone-call" style="vertical-align: middle; margin-right: 0.5em;"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><span>+40-740-364-842</span></div>
       </div>
     <!-- </div> -->
   </section>
@@ -32,8 +27,8 @@ import HeaderNavBar from './HeaderNavBar.vue';
   height: 100vh;
   min-height: 600px;
   display: flex;
-  align-items: center;
-  justify-content: center;
+  align-items: flex-start;
+  justify-content: flex-start;
   overflow: hidden;
   margin: 0;
   padding: 0;
@@ -42,33 +37,38 @@ import HeaderNavBar from './HeaderNavBar.vue';
   min-height: 100svh;
 }
 
-  .hero-title {
-    font-size: 1.2rem;
-  }
-  .hero-subtitle {
-    font-size: 0.95rem;
-  }
-
-  .hero-actions {
-    flex-direction: column;
-    gap: 0.5rem;
-  }
-  .cta-btn {
-    font-size: 0.95rem;
-    padding: 0.7rem 1.1rem;
-  }
-
-.hero-content {
-  color: #fff;
-  text-align: center;
-  z-index: 3;
-  max-width: 700px;
+  .hero-top-text {
+  font-size: 1.4rem;
+  font-weight: 600;
+  margin-bottom: 1.1rem;
+  color: #000;
+  letter-spacing: 0.04em;
+  text-shadow: 0 4px 24px rgba(255,255,255,0.65), 0 1px 4px rgba(255,255,255,0.75);
 }
 .hero-title {
   font-size: 2.8rem;
   font-weight: bold;
-  margin-bottom: 1rem;
-  text-shadow: 0 4px 24px rgba(0,0,0,0.45);
+  color: #000;
+  text-shadow: 0 4px 24px rgba(255,255,255,0.65), 0 1px 4px rgba(255,255,255,0.75);
+  margin-bottom: 1.6rem;
+
+}
+.hero-phone-number {
+  color: #000;
+  font-weight: 600;
+}
+
+.hero-content {
+  color: #fff;
+  text-align: left;
+  z-index: 3;
+  max-width: 700px;
+  margin-top: 24vh;
+  margin-left: 8vw;
+  align-items: flex-start;
+  justify-content: flex-start;
+  display: flex;
+  flex-direction: column;
 }
 .hero-subtitle {
   font-size: 1.3rem;
@@ -81,19 +81,21 @@ import HeaderNavBar from './HeaderNavBar.vue';
   justify-content: center;
 }
 .cta-btn {
+  display:flex;
+
   background: var(--color-primary);
   color: #181818;
   font-weight: 600;
   border: none;
   border-radius: 1.5rem;
-  padding: 0.75rem 2rem;
+  padding: 0.75rem 1.75rem;
   font-size: 1.1rem;
   cursor: pointer;
   transition: background 0.2s;
   display: flex;
   justify-content: center;
   align-items: center;
-  gap: 0.75rem;
+  gap: 0.5rem;
 }
 .cta-btn.secondary {
   background: rgba(255,255,255,0.18);
