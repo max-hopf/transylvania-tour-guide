@@ -37,6 +37,7 @@
 </picture>
 </div>
         <div class="activity-info">
+          <div class="activity-price">Start from {{ activity.price }}</div>
           <h3 class="activity-name">{{ activity.title }}</h3>
           <p class="activity-desc">{{ activity.desc }}</p>
         </div>
@@ -77,12 +78,21 @@ const durations = [
   { value: 4, label: 'days' },
   { value: 2, label: 'weeks' },
 ];
+const prices = [
+  '$149,00',
+  '$199,00',
+  '$99,00',
+  '$179,00',
+  '$129,00',
+  '$109,00',
+];
 const activities = activitiesImages.map((imgObj, idx) => ({
   ...imgObj,
   title: titles[idx],
   desc: descs[idx],
   durationValue: durations[idx].value,
   durationLabel: durations[idx].label,
+  price: prices[idx],
 }));
 const activitiesSectionRef = ref(null);
 let observer = null;
@@ -165,21 +175,29 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 220px;
   object-fit: cover;
-  border-top-left-radius: 18px;
-  border-top-right-radius: 18px;
+  /* border-top-left-radius: 18px;
+  border-top-right-radius: 18px; */
 }
 .activity-info {
-  padding: 1rem 1.2rem 1.2rem 1.2rem;
-  text-align: center;
+  padding: 0 0.5rem;
+  text-align: left;
 }
+.activity-price {
+  font-size: 1.25rem;
+  font-weight: 500;
+  color: #222;
+  margin-bottom: 0.5rem;
+}
+
 .activity-name {
   font-size: 1.25rem;
   font-weight: 700;
-  margin-bottom: 0.7rem;
   color: #222;
 }
 .activity-desc {
-  font-size: 1.06rem;
+  font-size: 1rem;
+  margin-top: 0.5rem;
+  margin-bottom: 1rem;
   color: #444;
 }
 .activity-label {
@@ -275,7 +293,7 @@ onBeforeUnmount(() => {
   width: 100%;
   height: 210px;
   box-sizing: border-box;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   overflow: hidden;
   border-radius: 1rem;
   border: 4px solid #fff;
