@@ -147,6 +147,8 @@ html {
   /* position: absolute;
   top: 0.7rem; */
   right: 1.2rem;
+  width: 48px;
+  height: 48px;
   background: none;
   border: none;
   padding: 0;
@@ -154,6 +156,21 @@ html {
   cursor: pointer;
   z-index: 1202;
   box-shadow: none;
+  color: inherit;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.hamburger-menu svg {
+  width: 60%;
+  height: 60%;
+  display: block;
+  margin: 0 auto;
+}
+.hamburger-menu:focus, .hamburger-menu:focus-visible {
+  outline: 2px solid var(--color-navbar-text);
+  outline-offset: 0.5px;
+  border-radius: 0.5em;
 }
 @media (max-width: 900px) {
   .hamburger-menu {
@@ -171,6 +188,7 @@ html {
 .hamburger-menu svg {
   width: 32px;
   height: 32px;
+  color: var(--color-default-text-dark);
 }
 
 .navbar {
@@ -243,22 +261,41 @@ html {
     left: 0;
     width: 100vw;
     height: 100vh;
-    background-color: #2c2c2c;
-    padding: 2rem;
+    max-height: 100vh;
+    overflow-y: auto;
+    background-color:rgb(243, 243, 243);
+    padding: 2rem 0 0 0;
     display: flex;
     flex-direction: column;
-    align-items: center;
+    align-items: stretch;
     gap: 2rem;
     list-style: none;
     margin: 0;
-    padding: 4rem 0 0 0;
+    box-sizing: border-box;
   }
   .nav-menu-overlay a {
     position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100vw;
+    max-width: 100vw;
+    /* margin-left: -2rem; Counteract overlay padding for edge-to-edge */
+    padding: 0.5rem 0;
+    /* min-height: 3.2rem; */
+    font-size: 1.3rem;
+    text-align: center;
+    border-radius: 0.5em;
+    background: transparent;
     text-decoration: none;
-    color: #333;
+    color: inherit;
     font-weight: 500;
-    transition: color 0.2s;
+    transition: background 0.2s, color 0.2s;
+  }
+  .nav-menu-overlay a:focus, .nav-menu-overlay a:hover {
+    background: rgba(255, 168, 0, 0.13); /* subtle highlight using primary color */
+    outline: none;
+    color: inherit;
   }
   .nav-menu-overlay a::after {
     content: '';

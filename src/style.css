@@ -14,6 +14,8 @@
   --color-primary-text: #ffa800;
   /* --color-primary: #ffa800;
   --color-primary-text: #E08600; */
+  --color-default-text-dark: #000;
+  --color-default-text-light: #fff;
   --color-navbar-text: #000;
   --color-primary-contrast: #222;
   --color-on-primary: #fff;

@@ -53,19 +53,11 @@ import HeaderNavBar from './HeaderNavBar.vue';
   background-repeat: no-repeat;
   z-index: 1;
   will-change: transform;
-   
   transform: translateZ(0) scale(1.1);
-  fallback for browsers not supporting background-attachment: fixed   
+  fallback for browsers not supporting background-attachment: fixed 
   background-attachment: fixed;
 } */
 
-@media (max-width: 900px) {
-  .parallax-hero-bg {
-    background-attachment: scroll;
-    min-height: 80vh;
-    height: auto;
-  }
-}
 
   .hero-title {
     font-size: 1.2rem;
