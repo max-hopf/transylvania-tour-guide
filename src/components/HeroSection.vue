@@ -64,7 +64,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
   z-index: 3;
   max-width: 700px;
   margin-top: 24vh;
-  margin-left: 8vw;
+  margin-left: 12vw;
   align-items: flex-start;
   justify-content: flex-start;
   display: flex;
@@ -210,6 +210,42 @@ import HeaderNavBar from './HeaderNavBar.vue';
     padding: 1rem 0;
     border-radius: 32px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.13);
+  }
+}
+
+@media (max-height: 600px) {
+  .hero-content {
+    /* text-align: left; */
+    /* max-width: 700px;  */
+    /* margin-top: 24vh; 
+    margin-left: 12vw; */
+    /* align-items: center; */
+    /* justify-content: center; */
+    /* display: flex; */
+    /* flex-direction: column; */
+    margin: 0;
+    display: flex;
+  }
+  .hero-section {
+    /* position: relative; */
+    /* width: 100vw; */
+    /* min-width: 100vw; */
+    /* left: 0; */
+    /* right: 0; */
+    /* height: 100vh; */
+    /* min-height: 600px; */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* overflow: hidden; */
+    /* margin: 0; */
+    /* padding: 0; */
+    /* box-sizing: border-box; */
+    /* Prevent content from being hidden behind mobile browser chrome */
+    /* min-height: 100svh; */
+  }
+  .hero-phone-number {
+    align-self: center;
   }
 }
 </style>
