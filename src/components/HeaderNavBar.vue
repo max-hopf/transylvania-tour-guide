@@ -125,7 +125,11 @@ html {
 .header-navbar .nav-menu a,
 .header-navbar .nav-menu-overlay a {
   color: var(--color-navbar-text);
+  /* text-shadow: 0 1px 6px rgba(0, 0, 0, 1), 0 1px 12px rgba(0, 0, 0, 1); */
   transition: color 0.28s cubic-bezier(.4,0,.2,1);
+}
+.header-navbar .nav-menu a {
+  font-weight: 600;
 }
 .header-navbar.scrolled .site-title,
 .header-navbar.scrolled .nav-menu a,

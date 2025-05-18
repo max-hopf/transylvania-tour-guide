@@ -37,19 +37,19 @@ import HeaderNavBar from './HeaderNavBar.vue';
   min-height: 100svh;
 }
 
-  .hero-top-text {
+.hero-top-text {
   font-size: 1.4rem;
   font-weight: 600;
   margin-bottom: 1.1rem;
-  color: #000;
+  color: #fff;
   letter-spacing: 0.04em;
-  text-shadow: 0 4px 24px rgba(255,255,255,0.65), 0 1px 4px rgba(255,255,255,0.75);
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 1), 0 1px 12px rgba(0, 0, 0, 1);
 }
 .hero-title {
   font-size: 2.8rem;
   font-weight: bold;
-  color: #000;
-  text-shadow: 0 4px 24px rgba(255,255,255,0.65), 0 1px 4px rgba(255,255,255,0.75);
+  color: #fff;
+  text-shadow: 0 1px 6px rgba(0, 0, 0, 1), 0 1px 12px rgba(0, 0, 0, 1);
   margin-bottom: 1.6rem;
 
 }
@@ -84,7 +84,8 @@ import HeaderNavBar from './HeaderNavBar.vue';
   display:flex;
 
   background: var(--color-primary);
-  color: #181818;
+  color:rgb(255, 255, 255);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65), 0 1px 12px rgba(0, 0, 0, 0.45);
   font-weight: 600;
   border: none;
   border-radius: 1.5rem;
@@ -97,6 +98,12 @@ import HeaderNavBar from './HeaderNavBar.vue';
   align-items: center;
   gap: 0.5rem;
 }
+
+.cta-btn svg {
+  /* Use drop-shadow for SVG icons */
+  /* filter: drop-shadow(0 1px 6px rgba(0, 0, 0, 1)); */
+}
+
 .cta-btn.secondary {
   background: rgba(255,255,255,0.18);
   color: #fff;
@@ -151,7 +158,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
     align-items: center;
   }
   .cta-btn {
-    width: 100%;
+    /* width: 100%; */
     padding: 0.75rem 2rem;
     font-size: 1.1rem;
     border-radius: 32px;
@@ -193,10 +200,18 @@ import HeaderNavBar from './HeaderNavBar.vue';
   }
   .hero-title {
     font-size: 2.2rem;
-    margin-bottom: 0.7rem;
+    margin-bottom: 3rem;
+  }
+  .hero-top-text {
+    font-size: 1.2rem;
+    font-weight: 600;
+    margin-bottom: 1.1rem;
+    color: #fff;
+    letter-spacing: 0.04em;
+    text-shadow: 0 1px 6px rgba(0, 0, 0, 1), 0 1px 12px rgba(0, 0, 0, 1);
   }
   .hero-subtitle {
-    font-size: 1.1rem;
+    font-size: 1rem;
     margin-bottom: 1.2rem;
   }
   .hero-actions {
@@ -205,8 +220,8 @@ import HeaderNavBar from './HeaderNavBar.vue';
     align-items: center;
   }
   .cta-btn {
-    width: 100%;
-    font-size: 1.08rem;
+    width: 90%;
+    font-size: 1rem;
     padding: 1rem 0;
     border-radius: 32px;
     box-shadow: 0 2px 12px rgba(0,0,0,0.13);
