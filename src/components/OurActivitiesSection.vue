@@ -203,6 +203,7 @@ onBeforeUnmount(() => {
 .activity-label {
   font-size: 1.05rem;
   color: var(--color-primary-text);
+  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.45), 0 1px 12px rgba(0, 0, 0, 0.45);
   font-weight: 600;
   margin-bottom: 0.6rem;
   display: flex;
@@ -221,6 +222,7 @@ onBeforeUnmount(() => {
   font-size: 2.3rem;
   font-weight: bold;
   color: #222;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.85), 0 1px 12px rgba(255, 255, 255, 0.75);
   margin-bottom: 3rem;
   margin-top: 0;
 }
