@@ -25,7 +25,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
   left: 0;
   right: 0;
   height: 100vh;
-  min-height: 600px;
+  min-height: 480px !important;
   display: flex;
   align-items: center;
   justify-content: center;
@@ -234,6 +234,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
     /* justify-content: center; */
     /* display: flex; */
     /* flex-direction: column; */
+    min-height: 600px;
     margin: 0;
     display: flex;
   }
