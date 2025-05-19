@@ -60,13 +60,17 @@ import HeaderNavBar from './HeaderNavBar.vue';
 
 .hero-content {
   color: #fff;
-  text-align: left;
+  text-align: center;
   z-index: 3;
   max-width: 700px;
   align-items: center;
   justify-content: center;
   display: flex;
   flex-direction: column;
+  position: absolute;
+  top: 45%;
+  left: 50%;
+  transform: translate(-50%, -50%);
 }
 .hero-subtitle {
   font-size: 1.3rem;
