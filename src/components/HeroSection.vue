@@ -80,10 +80,8 @@ import HeaderNavBar from './HeaderNavBar.vue';
 }
 .cta-btn {
   display:flex;
-
   background: var(--color-primary);
-  color:rgb(255, 255, 255);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.65), 0 1px 12px rgba(0, 0, 0, 0.45);
+  color: #000;
   font-weight: 600;
   border: none;
   border-radius: 1.5rem;

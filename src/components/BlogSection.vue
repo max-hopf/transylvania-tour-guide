@@ -204,6 +204,7 @@ onBeforeUnmount(() => {
   font-size: 2.1rem;
   font-weight: bold;
   color: #222;
+  text-shadow: 0 1px 3px rgba(255, 255, 255, 0.85), 0 1px 12px rgba(255, 255, 255, 0.75);
   margin-bottom: 2.5rem;
   margin-top: 0;
 }
