@@ -56,8 +56,8 @@ import HeaderNavBar from './HeaderNavBar.vue';
   border-radius: 24px 0 0 24px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.15);
   padding: 0.5rem 0.75rem 0.5rem 0.5rem;
-  width: 48px;
-  height: 48px;
+  width: 32px;
+  height: 32px;
   transition: width 0.3s cubic-bezier(.4,2,.6,1), background 0.2s;
   overflow: hidden;
   cursor: pointer;
@@ -74,8 +74,8 @@ import HeaderNavBar from './HeaderNavBar.vue';
   filter: brightness(0) invert(1);
 }
 .social-btn img {
-  width: 28px;
-  height: 28px;
+  width: 20px;
+  height: 20px;
   display: block;
 }
 .social-label {
@@ -281,7 +281,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
 }
 @media (max-width: 600px) {
   .hero-section {
-    min-height: 100svh;
+    min-height: 100vh;
     height: auto;
     padding-top: 56px; /* space for nav if needed */
     padding-bottom: 16px;
@@ -289,7 +289,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
   }
 
   .hero-overlay {
-    min-height: 100svh;
+    min-height: 100vh;
     height: auto;
     left: 0;
     right: 0;
