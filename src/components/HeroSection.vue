@@ -281,16 +281,19 @@ import HeaderNavBar from './HeaderNavBar.vue';
 }
 @media (max-width: 600px) {
   .hero-section {
-    min-height: 100vh;
-    height: auto;
+    min-height: 100svh;
+    height: 100svh;
     padding-top: 56px; /* space for nav if needed */
     padding-bottom: 16px;
     box-sizing: border-box;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
   }
 
   .hero-overlay {
-    min-height: 100vh;
-    height: auto;
+    min-height: 100svh;
+    height: 100svh;
     left: 0;
     right: 0;
     width: 100vw;
