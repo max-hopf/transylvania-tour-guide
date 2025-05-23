@@ -5,7 +5,7 @@
     </div>
     <h2 class="testimonials-title">What people are Saying about us</h2>
     <div class="testimonials-content">
-      <div class="testimonial-avatars">
+      <!-- <div class="testimonial-avatars">
         <img
           v-for="(t, idx) in testimonials"
           :key="idx"
@@ -25,6 +25,9 @@
           <img :src="testimonials[selectedIdx].avatar" class="author-avatar" alt="Testimonial author" />
           <span class="author-name">{{ testimonials[selectedIdx].name }}</span>
         </div>
+      </div> -->
+      <div class="tripadvisor-certificate-wrapper">
+        <img src="../assets/tripadvisor-certificate-2019.png" alt="Tripadvisor Certificate of Excellence 2019" class="tripadvisor-certificate-img" />
       </div>
       <a class="tripadvisor-link" href="https://www.tripadvisor.com/Attraction_Review-g298474-d10182481-Reviews-Transylvania_Tour_Guide-Cluj_Napoca_Cluj_County_Northwest_Romania_Transylvania.html" target="_blank" rel="noopener">
         <span class="tripadvisor-text">See more reviews on</span>
@@ -221,6 +224,19 @@ onBeforeUnmount(() => {
   color: #222;
   margin-top: 0.5rem;
 }
+.tripadvisor-certificate-wrapper {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-bottom:0;
+}
+.tripadvisor-certificate-img {
+  max-width: 24rem;
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
 .tripadvisor-link {
   display: flex;
   flex-direction: column;
@@ -235,7 +251,7 @@ onBeforeUnmount(() => {
   transition: color 0.18s;
 }
 .tripadvisor-link:hover {
-  color: #34e0a1;
+  color: #16b58a;
 }
 .tripadvisor-logo svg {
   width: 120px;
