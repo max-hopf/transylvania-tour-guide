@@ -52,12 +52,12 @@ import { images as activitiesImages } from './ourActivitiesImages.js';
 import { images as heroImages } from './heroImages.js';
 
 const titles = [
-  'Mountain Hiking',
-  'Cultural Tours',
-  'Wildlife Watching',
-  'Cave Adventures',
-  'Cycling Tours',
-  'Village Experiences',
+  'Maramures',
+  'Transylvania',
+  'Bucovina',
+  'Day Trips',
+  'Cycling',
+  'Hiking',
 ];
 
 const descs = [
