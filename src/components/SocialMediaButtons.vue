@@ -172,7 +172,7 @@ onBeforeUnmount(() => {
   .social-media-buttons {
     position: absolute;
     top: unset;
-    bottom: 1rem;
+    bottom: 2rem;
     right: 0;
     gap: 0.5rem;
     /* width: 120px; */

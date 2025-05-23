@@ -21,7 +21,7 @@ function handleScroll() {
   // Check all possible scroll positions for maximum compatibility
   const scrollY = window.scrollY || window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
   console.log('ScrollY:', scrollY);
-  visible.value = scrollY > 60;
+  visible.value = scrollY > 120;
 }
 
 function scrollToTop() {
