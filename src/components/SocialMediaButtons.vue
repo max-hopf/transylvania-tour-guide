@@ -1,19 +1,27 @@
 <template>
   <div class="social-media-buttons">
     <a
-      class="social-btn instagram"
+      :class="['social-btn', 'instagram', { open: isInstagramOpen }]"
       href="https://instagram.com/placeholder"
       target="_blank"
       rel="noopener noreferrer"
+      @touchstart="e => onTouchStart(e, 'instagram')"
+      @touchmove="e => onTouchMove(e, 'instagram')"
+      @touchend="e => onTouchEnd(e, 'instagram')"
+      @click.stop
     >
       <img src="../assets/social-media-icons/instagram-icon-3.svg" alt="Instagram" />
       <span class="social-label">instagram</span>
     </a>
     <a
-      class="social-btn linkedin"
+      :class="['social-btn', 'linkedin', { open: isLinkedinOpen }]"
       href="https://linkedin.com/placeholder"
       target="_blank"
       rel="noopener noreferrer"
+      @touchstart="e => onTouchStart(e, 'linkedin')"
+      @touchmove="e => onTouchMove(e, 'linkedin')"
+      @touchend="e => onTouchEnd(e, 'linkedin')"
+      @click.stop
     >
       <img src="../assets/social-media-icons/linkedin-icon-2.svg" alt="LinkedIn" />
       <span class="social-label">linkedin</span>
@@ -22,7 +30,72 @@
 </template>
 
 <script setup>
-// No script logic needed for static links
+import { ref, onMounted, onBeforeUnmount } from 'vue';
+
+const isInstagramOpen = ref(false);
+const isLinkedinOpen = ref(false);
+
+let dragStartX = { instagram: 0, linkedin: 0 };
+let dragCurrentX = { instagram: 0, linkedin: 0 };
+let dragging = { instagram: false, linkedin: false };
+
+function isMobile() {
+  return window.innerWidth <= 600;
+}
+
+function onTouchStart(e, network) {
+  if (!isMobile()) return;
+  dragging[network] = true;
+  dragStartX[network] = e.touches[0].clientX;
+  dragCurrentX[network] = dragStartX[network];
+}
+
+function onTouchMove(e, network) {
+  if (!dragging[network] || !isMobile()) return;
+  dragCurrentX[network] = e.touches[0].clientX;
+}
+
+function onTouchEnd(e, network) {
+  if (!dragging[network] || !isMobile()) return;
+  const dx = dragCurrentX[network] - dragStartX[network];
+  if (dx < -40) {
+    openButton(network);
+  } else if (dx > 40) {
+    closeButton(network);
+  }
+  dragging[network] = false;
+}
+
+function openButton(network) {
+  if (network === 'instagram') {
+    isInstagramOpen.value = true;
+    isLinkedinOpen.value = false;
+  } else if (network === 'linkedin') {
+    isLinkedinOpen.value = true;
+    isInstagramOpen.value = false;
+  }
+}
+
+function closeButton(network) {
+  if (network === 'instagram') {
+    isInstagramOpen.value = false;
+  } else if (network === 'linkedin') {
+    isLinkedinOpen.value = false;
+  }
+}
+
+function handleClickOutside(e) {
+  // Only close if click is outside both buttons
+  isInstagramOpen.value = false;
+  isLinkedinOpen.value = false;
+}
+
+onMounted(() => {
+  document.addEventListener('click', handleClickOutside);
+});
+onBeforeUnmount(() => {
+  document.removeEventListener('click', handleClickOutside);
+});
 </script>
 
 <style scoped>
@@ -114,7 +187,7 @@
     margin-left: 0;
   }
   .social-btn:hover .social-label {
-    width: 60px;
+    width: 80%;
     /* margin-left: 0.5rem; */
   }
 }
