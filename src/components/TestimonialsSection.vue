@@ -128,7 +128,7 @@ onBeforeUnmount(() => {
 }
 @media (max-width: 900px) {
   .testimonials-section {
-    padding: 4rem 0 2rem 0;
+    padding: 3rem 0 5rem 0;
   }
   .testimonial-card {
     flex-direction: column;
@@ -279,7 +279,7 @@ onBeforeUnmount(() => {
 }
 @media (max-width: 600px) {
   .testimonials-section {
-    padding: 2.2rem 1rem 1.1rem 1rem;
+    padding: 3rem 1rem 5rem 1rem;
   }
   .testimonials-title {
     font-size: 1.6rem;

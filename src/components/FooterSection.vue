@@ -16,7 +16,7 @@
         <h4 class="footer-title">Get In Touch</h4>
         <ul class="footer-contact">
     <li class="footer-contact-item">
-    <span>
+    <span class="footer-contact-text">
       <!-- <span class="footer-icon">
         <svg xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-map-pin-icon"><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/><circle cx="12" cy="10" r="3"/></svg>
       </span> -->
@@ -157,7 +157,7 @@
 .footer-icon {
   display: flex;
   font-size: 1.2em;
-  margin-right: 0.7rem;
+  margin-right: 0rem;
 }
 .footer-contact-item {
   display: flex;
@@ -165,10 +165,14 @@
   justify-content: center;
   gap: 0.7rem;
 }
+.footer-contact-text {
+  color: #fff;
+  font-weight: 500;
+}
 .footer-contact-link {
   display: flex;
   align-items: center;
-  gap: 0.7rem;
+  gap: 1rem;
   color: #fff;
   text-decoration: none;
   transition: color 0.18s;
