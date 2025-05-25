@@ -1,19 +1,29 @@
 <template>
   <section class="contact-section" id="contact">
+    <div class="contact-label">
+      Contact <span class="contact-label-line"></span>
+    </div>
+    <h2 class="contact-title">Get In Touch With Us</h2>
     <div class="contact-container">
-      <h2 class="contact-title">Contact Us</h2>
       <form @submit="sendEmail" class="contact-form">
         <div class="form-group">
-          <label for="name">Name</label>
+          <label for="name">Name *</label>
           <input type="text" id="name" name="name" v-model="name" required />
         </div>
         <div class="form-group">
-          <label for="email">Email</label>
+          <label for="email">Email *</label>
           <input type="email" id="email" name="email" v-model="email" required />
         </div>
         <div class="form-group">
-          <label for="message">Message</label>
+          <label for="message">Your Message *</label>
           <textarea id="message" name="message" v-model="message" @input="saveDraft" required rows="5"></textarea>
+        </div>
+        <div class="form-group consent-group">
+          <input type="checkbox" id="consent" v-model="consentGiven" required />
+          <label for="consent">
+            I consent to having this website store my submitted information so they can respond to my inquiry. 
+            <a href="/privacy-policy" target="_blank" rel="noopener">Privacy Policy</a>
+          </label>
         </div>
         <div class="form-actions">
           <button type="submit" :disabled="isSubmitting">Send Message</button>
@@ -31,6 +41,7 @@ import emailjs from 'emailjs-com';
 const name = ref('');
 const email = ref('');
 const message = ref('');
+const consentGiven = ref(false);
 const draftSavedAt = ref(null);
 const isSubmitting = ref(false);
 
@@ -61,6 +72,10 @@ function saveDraft() {
 
 async function sendEmail(event) {
   event.preventDefault();
+  if (!consentGiven.value) {
+    alert('You must consent to data processing to submit this form.');
+    return;
+  }
   if (isSubmitting.value) return;
   isSubmitting.value = true;
   try {
@@ -91,21 +106,43 @@ async function sendEmail(event) {
 .contact-section {
   background: #f7f9fa;
   padding: 4rem 1rem 3rem 1rem;
+  text-align: center;
+}
+.contact-label {
+  font-weight: 600;
+  color: var(--color-primary-text);
+  font-size: 1.08rem;
+  letter-spacing: 0.02em;
+  margin-bottom: 0.3rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.7rem;
+}
+.contact-label-line {
+  display: inline-block;
+  height: 2px;
+  width: 36px;
+  background: var(--color-primary-text);
+  border-radius: 2px;
+}
+.contact-title {
+  font-size: 1.6rem;
+  color: #222;
+  margin-bottom: 1.5rem;
+  margin-top: 0.2rem;
+  text-align: center;
+  font-weight: 700;
 }
 .contact-container {
   max-width: 520px;
   margin: 0 auto;
   background: #fff;
-  border-radius: 16px;
+  border-radius: 1rem;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   padding: 2.5rem 2rem 2rem 2rem;
 }
-.contact-title {
-  font-size: 2rem;
-  color: #388e3c;
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
+
 .contact-form {
   display: flex;
   flex-direction: column;
@@ -119,11 +156,38 @@ async function sendEmail(event) {
 .form-group label {
   font-weight: 500;
   color: #222;
+  text-align: left;
+}
+.consent-group {
+  flex-direction: row;
+  align-items: flex-start;
+  gap: 0.7rem;
+  margin-bottom: 0.9rem;
+}
+.consent-group input[type="checkbox"] {
+  margin-top: 0rem;
+  accent-color: #fea700;
+  width: 1.5rem;
+  height: 1.5rem;
+  min-width: 1.5rem;
+  min-height: 1.5rem;
+  cursor: pointer;
+}
+.consent-group label {
+  font-weight: 400;
+  font-size: 1rem;
+  color: #444;
+}
+.consent-group a {
+  color: #fea700;
+  text-decoration: underline;
+  margin-left: 0.2em;
+  font-size: 1rem;
 }
 .form-group input,
 .form-group textarea {
   border: 1px solid #cfd8dc;
-  border-radius: 8px;
+  border-radius: 2px;
   padding: 0.7rem;
   font-size: 1rem;
   background: #f7f9fa;
@@ -132,7 +196,7 @@ async function sendEmail(event) {
 .form-group input:focus,
 .form-group textarea:focus {
   outline: none;
-  border-color: #388e3c;
+  border-color:rgb(92, 92, 92);
 }
 .form-actions {
   display: flex;
@@ -141,8 +205,8 @@ async function sendEmail(event) {
   align-items: flex-end;
 }
 button[type="submit"] {
-  background: #388e3c;
-  color: #fff;
+  background: #fea700;
+  color: #222;
   border: none;
   border-radius: 8px;
   padding: 0.7rem 1.5rem;
@@ -152,7 +216,8 @@ button[type="submit"] {
   transition: background 0.18s;
 }
 button[type="submit"]:hover {
-  background: #2e7031;
+  background: #fea700;
+  filter: brightness(1.12);
 }
 .draft-info {
   font-size: 0.98rem;
