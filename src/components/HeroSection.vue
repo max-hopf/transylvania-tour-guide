@@ -4,8 +4,8 @@
     <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div>
     <!-- <div class="hero-overlay"> -->
       <div class="hero-content">
-        <div class="hero-top-text">Let's Make Your Best Trip Ever</div>
         <h1 class="hero-title">Welcome to Transylvania!</h1>
+        <div class="hero-top-text">The Land of Friendly Ghouls</div>
         <div class="hero-phone-number cta-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call-icon lucide-phone-call" style="vertical-align: middle; margin-right: 0.5em;"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><span>+40-740-364-842</span></div>
       </div>
     <!-- </div> -->
@@ -53,12 +53,13 @@ import HeaderNavBar from './HeaderNavBar.vue';
   font-weight: bold;
   color: #fff;
   text-shadow: 0 1px 6px rgba(0, 0, 0, 1), 0 1px 12px rgba(0, 0, 0, 1);
-  margin-bottom: 1.6rem;
+  margin-bottom: 1rem;
 
 }
 .hero-phone-number {
   color: #000;
   font-weight: 600;
+  margin-top: 2rem;
 }
 
 .hero-content {
@@ -71,7 +72,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
   display: flex;
   flex-direction: column;
   position: absolute;
-  top: 45%;
+  top: 40%;
   left: 50%;
   transform: translate(-50%, -50%);
 }
@@ -206,7 +207,7 @@ import HeaderNavBar from './HeaderNavBar.vue';
   }
   .hero-title {
     font-size: 2.2rem;
-    margin-bottom: 3rem;
+    margin-bottom: 1rem;
   }
   .hero-top-text {
     font-size: 1.2rem;
