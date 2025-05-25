@@ -1,12 +1,12 @@
 <template>
   <HeaderNavBar />
   <section class="activity-detail-section">
+    <div class="activity-detail-img">
+      <img :src="activity.fallback" :alt="activity.title" />
+    </div>
     <router-link class="back-link" to="/">&larr; Back to Activities</router-link>
     <div v-if="activity">
       <h1 class="activity-title">{{ activity.title }}</h1>
-      <div class="activity-detail-img">
-        <img :src="activity.fallback" :alt="activity.title" />
-      </div>
       <div class="activity-detail-info">
         <div class="activity-detail-price">Start from {{ activity.price }}</div>
         <p class="activity-detail-desc">{{ activity.desc }}</p>
@@ -205,10 +205,15 @@ const galleryImages = computed(() => {
 </script>
 
 <style scoped>
+.header-navbar{
+  background: rgb(255 255 255 / 61%);
+}
+
+
 .activity-detail-section {
-  max-width: 700px;
-  margin: 2rem auto;
-  padding: 2rem;
+  width: 100%;
+  margin: 0 auto;
+  padding: 0;
   background: #fff;
   color: #222;
   border-radius: 16px;
@@ -226,7 +231,10 @@ const galleryImages = computed(() => {
 }
 .activity-detail-img img {
   width: 100%;
-  border-radius: 12px;
+  max-width: 100%;
+  height: 640px;
+  object-fit: cover;
+  border-radius: 0;
   margin-bottom: 1.5rem;
 }
 .activity-detail-price {
