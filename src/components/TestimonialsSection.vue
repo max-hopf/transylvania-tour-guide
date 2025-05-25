@@ -26,9 +26,6 @@
           <span class="author-name">{{ testimonials[selectedIdx].name }}</span>
         </div>
       </div> -->
-      <div class="tripadvisor-certificate-wrapper">
-        <img src="../assets/tripadvisor-certificate-2019.png" alt="Tripadvisor Certificate of Excellence 2019" class="tripadvisor-certificate-img" />
-      </div>
       <a class="tripadvisor-link" href="https://www.tripadvisor.com/Attraction_Review-g298474-d10182481-Reviews-Transylvania_Tour_Guide-Cluj_Napoca_Cluj_County_Northwest_Romania_Transylvania.html" target="_blank" rel="noopener">
         <span class="tripadvisor-text">See more reviews on</span>
         <span class="tripadvisor-logo" aria-label="TripAdvisor logo">
@@ -37,6 +34,9 @@
           </svg>
         </span>
       </a>
+      <div class="tripadvisor-certificate-wrapper">
+        <img src="../assets/tripadvisor-certificate-2019.png" alt="Tripadvisor Certificate of Excellence 2019" class="tripadvisor-certificate-img" />
+      </div>
     </div>
   </section>
 </template>
