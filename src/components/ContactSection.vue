@@ -209,7 +209,7 @@ button[type="submit"] {
   color: #222;
   border: none;
   border-radius: 8px;
-  padding: 0.7rem 1.5rem;
+  padding: 1rem 1.75rem;
   font-size: 1.1rem;
   font-weight: 600;
   cursor: pointer;
@@ -223,5 +223,15 @@ button[type="submit"]:hover {
   font-size: 0.98rem;
   color: #888;
   margin-top: 0.2rem;
+}
+
+@media (max-width: 600px) {
+  .contact-container {
+    padding: 2.5rem 1rem 2rem 1rem;
+  }
+  button[type="submit"] {
+    width: 100%;
+  }
+
 }
 </style>
