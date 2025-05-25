@@ -9,7 +9,7 @@
         <p class="about-description">
           Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed dsedo eiusmod tempor incididunt ut labore et dolore magna aliqua. Quis ipsum suspendisse ultrices gravida. Risus commodo viverra maecenas accumsan ldsdeceus vel facilisis. Consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
         </p>
-        <button class="about-btn">Read More</button>
+        <router-link class="about-btn" to="/about">Read More</router-link>
       </div>
       <div class="about-images">
         <picture>
