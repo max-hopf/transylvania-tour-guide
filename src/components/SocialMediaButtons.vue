@@ -1,8 +1,21 @@
 <template>
   <div class="social-media-buttons">
     <a
+      :class="['social-btn', 'tripadvisor', { open: isTripadvisorOpen }]"
+      href="https://www.tripadvisor.com/Attraction_Review-g298474-d10182481-Reviews-Transylvania_Tour_Guide-Cluj_Napoca_Cluj_County_Northwest_Romania_Transylvania.html"
+      target="_blank"
+      rel="noopener noreferrer"
+      @touchstart="e => onTouchStart(e, 'tripadvisor')"
+      @touchmove="e => onTouchMove(e, 'tripadvisor')"
+      @touchend="e => onTouchEnd(e, 'tripadvisor')"
+      @click.stop
+    >
+      <img src="../assets/social-media-icons/tripadvisor-icon-1.svg" alt="TripAdvisor" />
+      <span class="social-label">tripadvisor</span>
+    </a>
+    <a
       :class="['social-btn', 'instagram', { open: isInstagramOpen }]"
-      href="https://instagram.com/placeholder"
+      href="https://www.instagram.com/transylvanicus/"
       target="_blank"
       rel="noopener noreferrer"
       @touchstart="e => onTouchStart(e, 'instagram')"
@@ -15,7 +28,7 @@
     </a>
     <a
       :class="['social-btn', 'linkedin', { open: isLinkedinOpen }]"
-      href="https://linkedin.com/placeholder"
+      href="https://www.linkedin.com/in/florin-merciu-bb4904202/"
       target="_blank"
       rel="noopener noreferrer"
       @touchstart="e => onTouchStart(e, 'linkedin')"
@@ -34,10 +47,11 @@ import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 const isInstagramOpen = ref(false);
 const isLinkedinOpen = ref(false);
+const isTripadvisorOpen = ref(false);
 
-let dragStartX = { instagram: 0, linkedin: 0 };
-let dragCurrentX = { instagram: 0, linkedin: 0 };
-let dragging = { instagram: false, linkedin: false };
+let dragStartX = { instagram: 0, linkedin: 0, tripadvisor: 0 };
+let dragCurrentX = { instagram: 0, linkedin: 0, tripadvisor: 0 };
+let dragging = { instagram: false, linkedin: false, tripadvisor: false };
 
 function isMobile() {
   return window.innerWidth <= 600;
@@ -166,6 +180,12 @@ onBeforeUnmount(() => {
   background: #0077b5;
 }
 .social-btn.linkedin:hover .social-label {
+  color: #fff;
+}
+.social-btn.tripadvisor:hover {
+  background: #479951;
+}
+.social-btn.tripadvisor:hover .social-label {
   color: #fff;
 }
 @media (max-width: 600px) {
