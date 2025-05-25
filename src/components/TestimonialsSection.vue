@@ -157,7 +157,7 @@ onBeforeUnmount(() => {
   font-size: 2.1rem;
   font-weight: bold;
   color: #222;
-  margin-bottom: 2.5rem;
+  margin-bottom: 1.5rem;
   margin-top: 0;
 }
 .testimonials-content {
@@ -243,7 +243,7 @@ onBeforeUnmount(() => {
   align-items: center;
   justify-content: center;
   /* gap: 1.1rem; */
-  margin-top: 2.2rem;
+  margin-top: 1rem;
   text-decoration: none;
   color: #111;
   font-weight: 600;

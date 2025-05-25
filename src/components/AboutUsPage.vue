@@ -7,26 +7,104 @@
         Welcome to Transylvania Tour Guide! We are passionate locals dedicated to sharing the magic of Transylvania, Maramureș, and Bucovina with travelers from around the world.
       </p>
       <div class="aboutus-content">
-        <h2>Our Mission</h2>
-        <p>
-          We aim to provide authentic, immersive experiences that reveal the region's natural beauty, fascinating history, and vibrant traditions. Our guides are storytellers, hikers, cyclists, and culture enthusiasts who love to connect visitors with the heart of Romania.
+  <p>
+    Meet Maria Popescu, your expert guide to the wonders of Transylvania and Maramureș. With over a decade of experience leading travelers through Romania’s most breathtaking landscapes and historic villages, Maria combines deep local knowledge with a passion for storytelling. Whether you’re hiking the Carpathian trails, exploring medieval castles, or discovering hidden traditions, Maria’s warmth and expertise ensure every journey is unique and memorable. Join her for an adventure that goes beyond sightseeing—immerse yourself in the authentic spirit of Romania with a guide who truly loves sharing her homeland.
+  </p>
+</div>
+    </div>
+  </section>
+
+  <section class="guides-section">
+    <h2 class="guides-title">Here’s who will guide you</h2>
+    <div class="guides-grid">
+      <div class="guide-card">
+        <img src="../assets/guide1.jpg" alt="Maria Popescu" class="guide-photo" />
+        <h3 class="guide-name">Maria Popescu</h3>
+        <div class="guide-role">LEAD GUIDE</div>
+        <p class="guide-bio">
+          Maria is a passionate local with over 10 years of experience guiding travelers through the Carpathians and Transylvania. Her storytelling and deep love for nature make every tour memorable. Maria is also a certified mountain guide and speaks English, Romanian, and French.
         </p>
-        <h2>Why Choose Us?</h2>
-        <ul>
-          <li>Expert local guides and personalized tours</li>
-          <li>Small groups for a genuine experience</li>
-          <li>Eco-friendly and sustainable travel practices</li>
-          <li>Support for local communities and artisans</li>
-        </ul>
-        <h2>Meet the Team</h2>
-        <p>
-          Our team includes licensed guides, nature lovers, and cultural ambassadors. We are always excited to welcome new friends and share our favorite places, legends, and flavors with you!
+      </div>
+      <div class="guide-card">
+        <img src="../assets/guide2.jpg" alt="Andrei Ionescu" class="guide-photo" />
+        <h3 class="guide-name">Andrei Ionescu</h3>
+        <div class="guide-role">CULTURE & HISTORY EXPERT</div>
+        <p class="guide-bio">
+          Andrei specializes in the history and folklore of Transylvania and Maramureș. With a background in ethnology and a love for local traditions, he brings the region’s stories to life. Andrei is fluent in English, Romanian, and German.
         </p>
       </div>
     </div>
   </section>
   <FooterSection />
 </template>
+
+<style scoped>
+.guides-section {
+  background: #fff;
+  padding: 3.5rem 1rem 2.5rem 1rem;
+  /* margin-top: 2.5rem; */
+}
+.guides-title {
+  text-align: center;
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 2.5rem;
+  color: #222;
+}
+.guides-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2.5rem;
+  justify-content: center;
+}
+.guide-card {
+  background: #f7f9fa;
+  border-radius: 18px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.07);
+  max-width: 340px;
+  flex: 1 1 320px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 2.5rem 1.5rem 2rem 1.5rem;
+  text-align: left;
+}
+.guide-photo {
+  width: 120px;
+  height: 120px;
+  object-fit: cover;
+  border-radius: 50%;
+  margin-bottom: 1.3rem;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.07);
+}
+.guide-name {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 0.3rem;
+  color: #222;
+}
+.guide-role {
+  font-size: 0.96rem;
+  font-weight: 500;
+  letter-spacing: 0.14em;
+  color: #888;
+  margin-bottom: 1.1rem;
+}
+.guide-bio {
+  font-size: 1rem;
+  color: #444;
+  margin-bottom: 0;
+}
+@media (max-width: 800px) {
+  .guides-grid {
+    flex-direction: column;
+    gap: 2rem;
+  }
+  .guide-card {
+    max-width: 100%;
+  }
+}
+</style>
 
 <script setup>
 import HeaderNavBar from './HeaderNavBar.vue';
@@ -36,7 +114,6 @@ import FooterSection from './FooterSection.vue';
 <style scoped>
 .aboutus-page-section {
   background: #f7f9fa;
-  min-height: 100vh;
   padding-top: 80px;
   padding-bottom: 40px;
 }
@@ -58,6 +135,11 @@ import FooterSection from './FooterSection.vue';
   font-size: 1.2rem;
   margin-bottom: 2rem;
   text-align: center;
+  color: #222;
+}
+.aboutus-content {
+  text-align: left;
+  color: #222;
 }
 .aboutus-content h2 {
   color: #e08a1e;
