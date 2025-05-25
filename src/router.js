@@ -3,6 +3,8 @@ const HomePage = () => import('./components/HomePage.vue');
 const BlogSection = () => import('./components/BlogSection.vue');
 const BlogPostPage = () => import('./components/BlogPostPage.vue');
 
+const ActivityDetail = () => import('./components/ActivityDetail.vue');
+
 const routes = [
   {
     path: '/',
@@ -18,6 +20,11 @@ const routes = [
     path: '/blog/:id',
     name: 'BlogPost',
     component: BlogPostPage
+  },
+  {
+    path: '/activity/:activityId',
+    name: 'ActivityDetail',
+    component: ActivityDetail
   }
 ];
 

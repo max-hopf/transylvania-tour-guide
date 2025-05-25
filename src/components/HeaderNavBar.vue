@@ -57,6 +57,7 @@
 <script setup>
 import { images as logoImages } from './logoImages.js';
 import { ref, onMounted, computed, onUnmounted } from 'vue';
+import { useRouter, useRoute } from 'vue-router';
 
 const menuItems = [
   { label: 'Home', href: '#hero' },
@@ -82,21 +83,36 @@ onMounted(() => {
     windowWidth.value = window.innerWidth;
   });
 });
+const router = useRouter ? useRouter() : null;
+const route = useRoute ? useRoute() : null;
+
+function scrollToHash(hash) {
+  const target = document.querySelector(hash);
+  if (target) {
+    target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    setTimeout(() => {
+      target.setAttribute('tabindex', '-1');
+      target.focus({ preventScroll: true });
+    }, 600);
+  }
+}
+
 function onMenuClick(event, href) {
-  // Only handle in-page anchors
   if (href.startsWith('#')) {
     event.preventDefault();
-    const target = document.querySelector(href);
-    if (target) {
-      // Use scrollIntoView for smooth, accessible scrolling
-      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      // Optionally, set focus for accessibility
-      setTimeout(() => {
-        target.setAttribute('tabindex', '-1');
-        target.focus({ preventScroll: true });
-      }, 600);
-    }
     closeMenu();
+    if (route && route.path === '/' && typeof window !== 'undefined') {
+      // Already on homepage, just scroll
+      scrollToHash(href);
+    } else if (router) {
+      // Not on homepage, navigate to homepage with hash
+      router.push({ path: '/', hash: href }).then(() => {
+        // Wait for DOM to update
+        setTimeout(() => {
+          scrollToHash(href);
+        }, 400);
+      });
+    }
   }
 }
 

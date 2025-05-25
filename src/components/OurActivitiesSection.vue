@@ -8,40 +8,46 @@
     <h2 class="activity-title">Explore Activities</h2>
 
     <div class="activities-grid">
-      <div v-for="activity in activities" :key="activity.title" class="activity-card">
+      <router-link
+        v-for="activity in activities"
+        :key="activity.title"
+        class="activity-card"
+        :to="`/activity/${slugify(activity.title)}`"
+        style="text-decoration: none; color: inherit;"
+      >
         <div class="activity-days-badge">
           <span class="days-number">{{ activity.durationValue }}</span>
           <span class="days-label">{{ activity.durationLabel }}</span>
         </div>
         <div class="activity-img-wrapper">
-  <picture>
-  <source
-    v-if="activity.webp && activity.webp.length"
-    :srcset="activity.webp.map((w, i) => w + ' ' + [400, 800, 1600, 1600][i] + 'w').join(', ')"
-    type="image/webp"
-    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-  />
-  <source
-    v-if="activity.jpeg && activity.jpeg.length"
-    :srcset="activity.jpeg.map((j, i) => j + ' ' + [400, 800, 1600, 1600][i] + 'w').join(', ')"
-    type="image/jpeg"
-    sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
-  />
-  <img
-    v-if="activity.fallback"
-    :src="activity.fallback"
-    :alt="activity.title"
-    class="activity-img"
-    loading="lazy"
-  />
-</picture>
-</div>
+          <picture>
+            <source
+              v-if="activity.webp && activity.webp.length"
+              :srcset="activity.webp.map((w, i) => w + ' ' + [400, 800, 1600, 1600][i] + 'w').join(', ')"
+              type="image/webp"
+              sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+            />
+            <source
+              v-if="activity.jpeg && activity.jpeg.length"
+              :srcset="activity.jpeg.map((j, i) => j + ' ' + [400, 800, 1600, 1600][i] + 'w').join(', ')"
+              type="image/jpeg"
+              sizes="(max-width: 600px) 400px, (max-width: 1200px) 800px, 1600px"
+            />
+            <img
+              v-if="activity.fallback"
+              :src="activity.fallback"
+              :alt="activity.title"
+              class="activity-img"
+              loading="lazy"
+            />
+          </picture>
+        </div>
         <div class="activity-info">
           <div class="activity-price">Start from {{ activity.price }}</div>
           <h3 class="activity-name">{{ activity.title }}</h3>
           <p class="activity-desc">{{ activity.desc }}</p>
         </div>
-      </div>
+      </router-link>
     </div>
   </section>
 </template>
@@ -133,6 +139,10 @@ onMounted(() => {
 onBeforeUnmount(() => {
   if (observer) observer.disconnect();
 });
+function slugify(title) {
+  return title.toLowerCase().replace(/\s+/g, '-');
+}
+
 </script>
 
 <style scoped>
