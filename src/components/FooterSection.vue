@@ -87,7 +87,7 @@
     </div>
     <div class="footer-bottom">
       <div class="footer-bottom-col footer-bottom-left">
-        <span class="footer-copyright">National Tour Guide License N. 50158741</span>
+        <span class="footer-copyright">National Tour Guide License N. 5164/2016</span>
       </div>
       <div class="footer-bottom-col footer-bottom-center">
         <span class="footer-made">Proudly Made in Transylvania</span>
