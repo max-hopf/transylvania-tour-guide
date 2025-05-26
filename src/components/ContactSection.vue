@@ -34,7 +34,7 @@
     </div>
     <div class="contact-divider"><span class="divider-line"></span><span class="divider-text">Or</span><span class="divider-line"></span></div>
     <div class="contact-container">
-      <h3 class="contact-subtitle">Any Other Way</h3>
+      <h3 class="contact-subtitle">Reach Out Another Way</h3>
       <ul class="alt-contact-list">
         <li class="alt-contact-item">
           <span class="alt-contact-icon">

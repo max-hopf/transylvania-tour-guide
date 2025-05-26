@@ -64,7 +64,7 @@ const menuItems = [
   { label: 'About Us', href: '#about' },
   { label: 'Our Activities', href: '#activities' },
   { label: 'Blog', href: '#blog' }, // This will link to section with id="blog"
-  { label: 'Contact', href: '#footer' }, // This will link to section with id="footer"
+  { label: 'Contact', href: '#contact' }, // This will link to section with id="contact"
 ];
 
 let isMenuOpen = ref(false);
