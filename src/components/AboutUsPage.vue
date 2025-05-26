@@ -112,6 +112,12 @@ import FooterSection from './FooterSection.vue';
 </script>
 
 <style scoped>
+.header-navbar {
+  position: relative;
+  background-color: #f7f9fa;
+}
+
+
 .aboutus-page-section {
   background: #f7f9fa;
   padding-top: 80px;
