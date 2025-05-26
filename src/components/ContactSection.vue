@@ -5,6 +5,7 @@
     </div>
     <h2 class="contact-title">Get In Touch With Us</h2>
     <div class="contact-container">
+      <h3 class="contact-subtitle">Using The Form</h3>
       <form @submit="sendEmail" class="contact-form">
         <div class="form-group">
           <label for="name">Name *</label>
@@ -30,6 +31,39 @@
           <span v-if="draftSavedAt" class="draft-info">Draft saved at {{ formattedDraftTime }}</span>
         </div>
       </form>
+    </div>
+    <div class="contact-divider"><span class="divider-line"></span><span class="divider-text">Or</span><span class="divider-line"></span></div>
+    <div class="contact-container">
+      <h3 class="contact-subtitle">Any Other Way</h3>
+      <ul class="alt-contact-list">
+        <li class="alt-contact-item">
+          <span class="alt-contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="10" r="3"/><path d="M20 10c0 4.993-5.539 10.193-7.399 11.799a1 1 0 0 1-1.202 0C9.539 20.193 4 14.993 4 10a8 8 0 0 1 16 0"/></svg>
+          </span>
+          <div class="alt-contact-texts">
+            <span class="alt-contact-label">Address:</span>
+            <a class="alt-contact-detail alt-contact-link" href="https://maps.app.goo.gl/XwEmmhgMLhaBuHTj7" target="_blank" rel="noopener" aria-label="Open address in Google Maps">Breb Village N. 189A, Maramures, Romania</a>
+          </div>
+        </li>
+        <li class="alt-contact-item">
+          <span class="alt-contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+          </span>
+          <div class="alt-contact-texts">
+            <span class="alt-contact-label">Phone:</span>
+            <a class="alt-contact-detail alt-contact-link" href="tel:+40740364842" aria-label="Call +40 740 364 842">+40 740 364 842</a>
+          </div>
+        </li>
+        <li class="alt-contact-item">
+          <span class="alt-contact-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#555" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect width="20" height="16" x="2" y="4" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+          </span>
+          <div class="alt-contact-texts">
+            <span class="alt-contact-label">Email:</span>
+            <a class="alt-contact-detail alt-contact-link" href="mailto:transylvanica@gmail.com" aria-label="Send email to transylvanica@gmail.com">transylvanica@gmail.com</a>
+          </div>
+        </li>
+      </ul>
     </div>
   </section>
 </template>
@@ -134,6 +168,38 @@ async function sendEmail(event) {
   text-align: center;
   font-weight: 700;
 }
+.contact-subtitle {
+  font-size: 1.2rem;
+  color: #222;
+  margin-bottom: 1.5rem;
+  text-align: center;
+  font-weight: 700;
+}
+.contact-divider {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  width: 100%;
+}
+.divider-line {
+  flex: 0 0 48px;
+  height: 1px;
+  background: #222;
+  min-width: 24px;
+  max-width: 64px;
+  border: none;
+}
+.divider-text {
+  font-size: 1.2rem;
+  color: #222;
+  font-weight: 700;
+  padding: 0 0.7em;
+  white-space: nowrap;
+}
+
 .contact-container {
   max-width: 520px;
   margin: 0 auto;
@@ -220,18 +286,80 @@ button[type="submit"]:hover {
   filter: brightness(1.12);
 }
 .draft-info {
-  font-size: 0.98rem;
+  font-size: 1rem;
   color: #888;
   margin-top: 0.2rem;
 }
 
+.alt-contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 2.2rem 0 0 0;
+}
+.alt-contact-item {
+  display: flex;
+  align-items: flex-start;
+  margin-bottom: 2.5rem;
+  gap: 0.8rem;
+}
+.alt-contact-icon {
+  flex-shrink: 0;
+  margin-top: 0.1em;
+  margin-right: 0.6rem;
+  color: #555;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+}
+.alt-contact-texts {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.alt-contact-label {
+  font-weight: 700;
+  font-size: 1rem;
+  color: #555;
+  margin-bottom: 0.1em;
+  line-height: 1.1;
+}
+.alt-contact-detail,
+.alt-contact-link {
+  font-size: 1rem;
+  color: #555 !important;
+  text-decoration: none;
+  margin: 0;
+  display: block;
+  line-height: 1.24;
+  word-break: break-word;
+  transition: text-decoration 0.18s, color 0.18s;
+}
+.alt-contact-link:hover,
+.alt-contact-link:focus {
+  text-decoration: underline;
+  color: #fea700 !important;
+}
+.alt-contact-list a {
+  color: #555 !important;
+  text-decoration: none;
+  text-align: left;
+}
 @media (max-width: 600px) {
   .contact-container {
     padding: 2.5rem 1rem 2rem 1rem;
   }
+  .alt-contact-label,
+  .alt-contact-detail,
+  .alt-contact-link {
+    font-size: 1.04rem;
+  }
+  .alt-contact-item {
+    margin-bottom: 1.5rem;
+  }
   button[type="submit"] {
     width: 100%;
   }
-
 }
 </style>
