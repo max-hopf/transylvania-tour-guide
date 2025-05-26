@@ -3,14 +3,14 @@
     <HeaderNavBar />
     <div class="aboutus-container">
       <h1 class="aboutus-title">Meet Your Guides</h1>
-      <p class="aboutus-intro">
+      <!-- <p class="aboutus-intro">
         Welcome to Transylvania Tour Guide! We are passionate locals dedicated to sharing the magic of Transylvania, Maramureș, and Bucovina with travelers from around the world.
       </p>
       <div class="aboutus-content">
   <p>
     Meet Maria Popescu, your expert guide to the wonders of Transylvania and Maramureș. With over a decade of experience leading travelers through Romania’s most breathtaking landscapes and historic villages, Maria combines deep local knowledge with a passion for storytelling. Whether you’re hiking the Carpathian trails, exploring medieval castles, or discovering hidden traditions, Maria’s warmth and expertise ensure every journey is unique and memorable. Join her for an adventure that goes beyond sightseeing—immerse yourself in the authentic spirit of Romania with a guide who truly loves sharing her homeland.
   </p>
-</div>
+</div> -->
     </div>
   </section>
 
@@ -104,6 +104,7 @@
     max-width: 100%;
   }
 }
+
 </style>
 
 <script setup>
@@ -112,17 +113,14 @@ import FooterSection from './FooterSection.vue';
 </script>
 
 <style scoped>
-.header-navbar {
-  position: relative;
-  top: 0;
-  background-color:rgba(247, 249, 250, 0.7);
-}
+
 
 
 .aboutus-page-section {
   position: relative;
   overflow: hidden;
-  min-height: 100vh;
+  min-height: 20rem;
+  max-height: 20rem
 }
 .aboutus-page-section::before {
   content: '';
@@ -135,7 +133,7 @@ import FooterSection from './FooterSection.vue';
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.7) blur(1.5px);
+  filter: brightness(0.6) blur(0px);
   z-index: 0;
 }
 .aboutus-container,
@@ -146,15 +144,15 @@ import FooterSection from './FooterSection.vue';
 
 .aboutus-container {
   max-width: 800px;
-  margin: 5rem auto;
-  background: #fff;
+  margin: 1rem auto;
+  background: transparent;
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
   padding: 2.5rem 2rem 2rem 2rem;
 }
 .aboutus-title {
   font-size: 2.5rem;
-  color: #388e3c;
+  color:rgb(255, 255, 255);
   margin-bottom: 1.5rem;
   text-align: center;
 }
@@ -181,4 +179,31 @@ import FooterSection from './FooterSection.vue';
   font-size: 1rem;
   margin-bottom: 0.5rem;
 }
+
+
+.header-navbar {
+  position: relative;
+  top: 0;
+  background-color:rgba(15, 15, 15, 0.5);
+}
+
+::v-deep .site-title,
+::v-deep .nav-menu a,
+::v-deep .site-title {
+  color: #fff !important;
+}
+
+::v-deep .hamburger-menu svg {
+  color: #fff !important;
+  stroke: #fff !important;
+}
+
+/* When menu is open, make the X icon black */
+::v-deep .hamburger-menu[aria-expanded="true"] svg:last-of-type {
+  color: #111 !important;
+  stroke: #111 !important;
+}
+
+
+
 </style>
