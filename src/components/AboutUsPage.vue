@@ -1,8 +1,8 @@
 <template>
-  <HeaderNavBar />
   <section class="aboutus-page-section">
+    <HeaderNavBar />
     <div class="aboutus-container">
-      <h1 class="aboutus-title">About Us</h1>
+      <h1 class="aboutus-title">Meet Your Guides</h1>
       <p class="aboutus-intro">
         Welcome to Transylvania Tour Guide! We are passionate locals dedicated to sharing the magic of Transylvania, Maramureș, and Bucovina with travelers from around the world.
       </p>
@@ -114,18 +114,39 @@ import FooterSection from './FooterSection.vue';
 <style scoped>
 .header-navbar {
   position: relative;
-  background-color: #f7f9fa;
+  top: 0;
+  background-color:rgba(247, 249, 250, 0.7);
 }
 
 
 .aboutus-page-section {
-  background: #f7f9fa;
-  padding-top: 80px;
-  padding-bottom: 40px;
+  position: relative;
+  overflow: hidden;
+  min-height: 100vh;
 }
+.aboutus-page-section::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: url('../assets/about-us-title.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  filter: brightness(0.7) blur(1.5px);
+  z-index: 0;
+}
+.aboutus-container,
+.aboutus-page-section > *:not(style):not(.aboutus-page-section)::before {
+  position: relative;
+  z-index: 1;
+}
+
 .aboutus-container {
   max-width: 800px;
-  margin: 0 auto;
+  margin: 5rem auto;
   background: #fff;
   border-radius: 16px;
   box-shadow: 0 2px 12px rgba(0,0,0,0.06);
