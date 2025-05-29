@@ -4,19 +4,38 @@
     <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div>
     <!-- <div class="hero-overlay"> -->
       <div class="hero-content">
-        <h1 class="hero-title">Welcome to Transylvania!</h1>
-        <div class="hero-top-text">The Land of Friendly Ghouls</div>
-        <div class="hero-phone-number cta-btn"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call-icon lucide-phone-call" style="vertical-align: middle; margin-right: 0.5em;"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><span>+40-740-364-842</span></div>
-      </div>
+    <h1 :class="['hero-title', { 'fade-in-scale': showTitle }]">Welcome to Transylvania!</h1>
+    <div :class="['hero-top-text', { 'fade-in-scale': showTopText }]">The Land of Friendly Ghouls</div>
+    <div :class="['hero-phone-number', 'cta-btn', { 'fade-in-scale': showCTA }]">
+      <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call-icon lucide-phone-call" style="vertical-align: middle; margin-right: 0.5em;"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><span>+40-740-364-842</span>
+    </div>
+</div>
     <!-- </div> -->
     <SocialMediaButtons />
   </section>
 </template>
 
 <script setup>
+import { ref, onMounted } from 'vue';
 import SocialMediaButtons from './SocialMediaButtons.vue';
 import { images as heroImages } from './heroImages.js';
 import HeaderNavBar from './HeaderNavBar.vue';
+
+const showTitle = ref(false);
+const showTopText = ref(false);
+const showCTA = ref(false);
+
+onMounted(() => {
+  setTimeout(() => {
+    showTitle.value = true;
+    setTimeout(() => {
+      showTopText.value = true;
+      setTimeout(() => {
+        showCTA.value = true;
+      }, 2000);
+    }, 1200);
+  }, 200);
+});
 </script>
 
 <style scoped>
@@ -271,4 +290,16 @@ import HeaderNavBar from './HeaderNavBar.vue';
     align-self: center;
   }
 }
+.fade-in-scale {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.hero-title, .hero-top-text, .hero-phone-number.cta-btn {
+  opacity: 0;
+  transform: scale(0.8);
+  transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
 </style>
