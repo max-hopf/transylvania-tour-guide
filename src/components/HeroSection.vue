@@ -4,9 +4,9 @@
     <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div>
     <!-- <div class="hero-overlay"> -->
       <div class="hero-content">
-    <h1 :class="['hero-title', { 'fade-in-scale': showTitle }]">Welcome to Transylvania!</h1>
-    <div :class="['hero-top-text', { 'fade-in-scale': showTopText }]">The Land of Friendly Ghouls</div>
-    <div :class="['hero-phone-number', 'cta-btn', { 'fade-in-scale': showCTA }]">
+    <h1 :class="['hero-title', { 'fade-in-scale': showTitle && !animationDisabled, 'instant-visible': animationDisabled }]">Welcome to Transylvania!</h1>
+    <div :class="['hero-top-text', { 'fade-in-scale': showTopText && !animationDisabled, 'instant-visible': animationDisabled }]">The Land of Friendly Ghouls</div>
+    <div :class="['hero-phone-number', 'cta-btn', { 'fade-in-scale': showCTA && !animationDisabled, 'instant-visible': animationDisabled }]">
       <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="lucide lucide-phone-call-icon lucide-phone-call" style="vertical-align: middle; margin-right: 0.5em;"><path d="M13 2a9 9 0 0 1 9 9"/><path d="M13 6a5 5 0 0 1 5 5"/><path d="M13.832 16.568a1 1 0 0 0 1.213-.303l.355-.465A2 2 0 0 1 17 15h3a2 2 0 0 1 2 2v3a2 2 0 0 1-2 2A18 18 0 0 1 2 4a2 2 0 0 1 2-2h3a2 2 0 0 1 2 2v3a2 2 0 0 1-.8 1.6l-.468.351a1 1 0 0 0-.292 1.233 14 14 0 0 0 6.392 6.384"/></svg><span>+40-740-364-842</span>
     </div>
 </div>
@@ -24,19 +24,28 @@ import HeaderNavBar from './HeaderNavBar.vue';
 const showTitle = ref(false);
 const showTopText = ref(false);
 const showCTA = ref(false);
+const animationDisabled = ref(false);
 
 onMounted(() => {
-  setTimeout(() => {
+  if (localStorage.getItem('heroAnimated')) {
+    animationDisabled.value = true;
+    showTitle.value = true;
+    showTopText.value = true;
+    showCTA.value = true;
+  } else {
     setTimeout(() => {
-      showTitle.value = true;
       setTimeout(() => {
-        showTopText.value = true;
+        showTitle.value = true;
         setTimeout(() => {
-          showCTA.value = true;
-        }, 2000); // Delay for cta-btn
-      }, 1200); // Delay for top text
-    }, 1000); // Initial delay before animation starts
-  }, 0);
+          showTopText.value = true;
+          setTimeout(() => {
+            showCTA.value = true;
+            localStorage.setItem('heroAnimated', 'true');
+          }, 2000); // Delay for cta-btn
+        }, 1200); // Delay for top text
+      }, 600); // Initial delay before animation starts
+    }, 0);
+  }
 });
 </script>
 
@@ -296,6 +305,11 @@ onMounted(() => {
   opacity: 1 !important;
   transform: scale(1) !important;
   transition: opacity 2s cubic-bezier(0.4, 0, 0.2, 1), transform 2s cubic-bezier(0.4, 0, 0.2, 1);
+}
+.instant-visible {
+  opacity: 1 !important;
+  transform: scale(1) !important;
+  transition: none !important;
 }
 .hero-title, .hero-top-text, .hero-phone-number.cta-btn {
   opacity: 0;
