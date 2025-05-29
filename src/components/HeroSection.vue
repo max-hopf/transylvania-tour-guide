@@ -27,14 +27,16 @@ const showCTA = ref(false);
 
 onMounted(() => {
   setTimeout(() => {
-    showTitle.value = true;
     setTimeout(() => {
-      showTopText.value = true;
+      showTitle.value = true;
       setTimeout(() => {
-        showCTA.value = true;
-      }, 2000);
-    }, 1200);
-  }, 200);
+        showTopText.value = true;
+        setTimeout(() => {
+          showCTA.value = true;
+        }, 2000); // Delay for cta-btn
+      }, 1200); // Delay for top text
+    }, 1000); // Initial delay before animation starts
+  }, 0);
 });
 </script>
 
