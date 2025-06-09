@@ -43,7 +43,15 @@
           </picture>
         </div>
         <div class="activity-info">
-          <div class="activity-price">Start from {{ activity.price }}</div>
+          <div class="activity-price">
+  Start from
+  <span v-if="activity.price && activity.price.includes('/person')">
+    {{ activity.price.split('/person')[0] }}<span class="per-person">/person</span>
+  </span>
+  <span v-else>
+    {{ activity.price }}
+  </span>
+</div>
           <h3 class="activity-name">{{ activity.title }}</h3>
           <p class="activity-desc">{{ activity.desc }}</p>
         </div>
@@ -58,8 +66,8 @@ import { images as activitiesImages } from './ourActivitiesImages.js';
 import { images as heroImages } from './heroImages.js';
 
 const titles = [
-  'Maramures',
   'Transylvania',
+  'Maramures',
   'Bucovina',
   'Day Trips',
   'Cycling',
@@ -85,7 +93,7 @@ const durations = [
   { value: 2, label: 'weeks' },
 ];
 const prices = [
-  '$149,00',
+  '790 EUR/person',
   '$199,00',
   '$99,00',
   '$179,00',
@@ -193,14 +201,20 @@ function slugify(title) {
   text-align: left;
 }
 .activity-price {
-  font-size: 1.25rem;
+  font-size: 1.125rem;
   font-weight: 500;
   color: #222;
   margin-bottom: 0.5rem;
 }
+.per-person {
+  font-size: 0.875rem;
+  color: #222;
+  font-weight: 400;
+  margin-left: 2px;
+}
 
 .activity-name {
-  font-size: 1.25rem;
+  font-size: 1.4rem;
   font-weight: 700;
   color: #222;
 }
