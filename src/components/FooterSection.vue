@@ -5,7 +5,7 @@
       <div class="footer-col">
         <h4 class="footer-title">Quick Links</h4>
         <ul class="footer-links">
-          <li><a href="#privacy">Privacy Policy</a></li>
+          <li><router-link to="/privacy-policy">Privacy Policy</router-link></li>
           <li><a href="#terms">Terms and Conditions</a></li>
           <li><a href="#faq">FAQ</a></li>
         </ul>

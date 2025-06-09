@@ -5,6 +5,7 @@ const BlogPostPage = () => import('./components/BlogPostPage.vue');
 
 const ActivityDetail = () => import('./components/ActivityDetail.vue');
 const AboutUsPage = () => import('./components/AboutUsPage.vue');
+const PrivacyPolicyPage = () => import('./components/PrivacyPolicyPage.vue');
 
 const routes = [
   {
@@ -31,6 +32,11 @@ const routes = [
     path: '/about',
     name: 'AboutUsPage',
     component: AboutUsPage
+  },
+  {
+    path: '/privacy-policy',
+    name: 'PrivacyPolicyPage',
+    component: PrivacyPolicyPage
   }
 ];
 
