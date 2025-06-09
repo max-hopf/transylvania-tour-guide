@@ -123,36 +123,40 @@ import FooterSection from './FooterSection.vue';
 <style scoped>
 .privacy-policy-section {
   /* max-width: 800px; */
-  background-color: #fff;
+  background-color: #f9f9f9;
   width: 100%;
-  margin: 0 auto 4rem auto;
-  padding: 0rem 0rem 6rem 0rem;
-  background: #fff;
+  margin: 0 auto 0 auto;
+  padding: 0rem 0rem 1rem 0rem;
   /* border-radius: 20px; */
   /* box-shadow: 0 2px 16px rgba(0,0,0,0.07); */
   color: #222;
   font-size: 1.0rem;
   line-height: 1.6;
   text-align: left;
+  /* align-items: center;
+  justify-content: center; */
 }
 
 .privacy-policy-content {
-  max-width: 800px;
-  margin: 0 auto;
-  padding: 3rem 2rem 2rem 2rem;
+  max-width: 48rem;
+  margin: 2rem auto 6rem auto;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 2px 12px rgba(0,0,0,0.06);
+  padding: 4rem 2rem 2rem 2rem;
 }
 
 .privacy-policy-section h1 {
   font-size: 2.2rem;
   margin-bottom: 2rem;
-  color: #e08a1e;
+  color: #3e3e3e;
   text-align: center;
 }
 .privacy-policy-section h2 {
   font-size: 1.25rem;
   margin-top: 2.2rem;
-  margin-bottom: 0.8rem;
-  color: #388e3c;
+  margin-bottom: 0.5rem;
+  color: #1a1a1a;
 }
 .privacy-policy-section ul {
   margin: 0 0 1.5rem 1.5rem;

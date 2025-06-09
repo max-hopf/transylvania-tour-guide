@@ -6,6 +6,7 @@ const BlogPostPage = () => import('./components/BlogPostPage.vue');
 const ActivityDetail = () => import('./components/ActivityDetail.vue');
 const AboutUsPage = () => import('./components/AboutUsPage.vue');
 const PrivacyPolicyPage = () => import('./components/PrivacyPolicyPage.vue');
+import TermsAndConditionsPage from './components/TermsAndConditionsPage.vue';
 
 const routes = [
   {
@@ -37,6 +38,11 @@ const routes = [
     path: '/privacy-policy',
     name: 'PrivacyPolicyPage',
     component: PrivacyPolicyPage
+  },
+  {
+    path: '/terms-and-conditions',
+    name: 'TermsAndConditionsPage',
+    component: TermsAndConditionsPage
   }
 ];
 
