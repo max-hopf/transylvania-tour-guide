@@ -2,6 +2,7 @@
   <HeroSection />
   <AboutUsSection />
   <OurActivitiesSection />
+  <OurActivitiesSectionTest />
   <TestimonialsSection />
   <BlogSection />
   <ContactSection />
@@ -13,6 +14,7 @@
 import HeroSection from './HeroSection.vue';
 import AboutUsSection from './AboutUsSection.vue';
 import OurActivitiesSection from './OurActivitiesSection.vue';
+import OurActivitiesSectionTest from './OurActivitiesSection-test.vue';
 import TestimonialsSection from './TestimonialsSection.vue';
 import BlogSection from './BlogSection.vue';
 import ContactSection from './ContactSection.vue';
