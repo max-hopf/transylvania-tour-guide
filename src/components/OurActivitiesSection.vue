@@ -253,7 +253,7 @@ function slugify(title) {
 }
 .activity-days-badge {
   position: absolute;
-  top: 180px;
+  top: 320px;
   right: 2rem;
   background: #fff;
   border: 3px solid rgba(208, 208, 208, 0.83);
@@ -302,25 +302,34 @@ function slugify(title) {
 }
 .activity-img-wrapper {
   width: 100%;
-  height: 210px;
+  aspect-ratio: 1 / 1;
+  /* fallback for browsers that do not support aspect-ratio */
+  height: 0;
+  padding-bottom: 100%;
+  position: relative;
   box-sizing: border-box;
   margin-bottom: 0.5rem;
   overflow: hidden;
   border-radius: 1rem;
-  border: 4px solid #fff;
+  /* border removed to fix aspect ratio */
 }
 
 .activity-img {
-  width: 350px;
-  height: 210px;
+  width: 100%;
+  height: 100%;
+  aspect-ratio: 1 / 1;
   object-fit: cover;
   border-radius: 1rem;
+  border: 4px solid #fff;
   box-shadow: 0 2px 10px rgba(0,0,0,0.06);
   background: #fff;
   display: block;
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+  position: absolute;
+  top: 0;
+  left: 0;
 }
 
 </style>
