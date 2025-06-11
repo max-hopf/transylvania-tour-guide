@@ -187,19 +187,19 @@ import FooterSection from './FooterSection.vue';
   background-color:rgba(15, 15, 15, 0.5);
 }
 
-::v-deep .site-title,
-::v-deep .nav-menu a,
-::v-deep .site-title {
+:deep(.site-title),
+:deep(.nav-menu a),
+:deep(.site-title) {
   color: #fff !important;
 }
 
-::v-deep .hamburger-menu svg {
+:deep(.hamburger-menu svg) {
   color: #fff !important;
   stroke: #fff !important;
 }
 
 /* When menu is open, make the X icon black */
-::v-deep .hamburger-menu[aria-expanded="true"] svg:last-of-type {
+:deep(.hamburger-menu[aria-expanded="true"] svg:last-of-type) {
   color: #111 !important;
   stroke: #111 !important;
 }
