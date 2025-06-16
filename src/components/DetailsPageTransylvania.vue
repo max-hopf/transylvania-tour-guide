@@ -68,17 +68,17 @@ const galleryImages = [
   { src: img5, alt: '', orientation: 'landscape' }, // 4000x2252
   { src: img8, alt: '', orientation: 'portrait' }, // 2252x4000
   { src: img3, alt: '', orientation: 'landscape' }, // 4000x2252
+  { src: img15, alt: '', orientation: 'portrait' }, // 4000x2252
   { src: img6, alt: '', orientation: 'landscape' }, // 4000x2252
   { src: img7, alt: '', orientation: 'landscape' }, // 4000x2252
   { src: img9, alt: '', orientation: 'landscape' }, // 4000x2252
   { src: img10, alt: '', orientation: 'landscape' }, // 4000x2252
   { src: img17, alt: '', orientation: 'square' }, // 1080x1080
+  { src: img14, alt: '', orientation: 'portrait' }, // 4000x2252
   { src: img11, alt: '', orientation: 'portrait' }, // 2252x4000
-  { src: img12, alt: '', orientation: 'landscape' }, // 4000x2252
   { src: img13, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img14, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img15, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img16, alt: '', orientation: 'landscape' }, // 4000x2252
+  { src: img16, alt: '', orientation: 'portrait' }, // 4000x2252
+  { src: img12, alt: '', orientation: 'landscape' }, // 4000x2252
 ];
 const transylvaniaTabs = [
   {
