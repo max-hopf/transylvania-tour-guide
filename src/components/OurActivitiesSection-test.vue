@@ -67,6 +67,9 @@ import activityTransylvania2 from '../assets/activity-transylvania/activity-tran
 import activityTransylvania3 from '../assets/activity-transylvania/activity-transylvania-3.jpg';
 import activityTransylvania4 from '../assets/activity-transylvania/activity-transylvania-4.jpg';
 import activityTransylvania5 from '../assets/activity-transylvania/activity-transylvania-5.jpg';
+import activityTransylvania6 from '../assets/activity-transylvania/activity-transylvania-6.jpg';
+import activityTransylvania7 from '../assets/activity-transylvania/activity-transylvania-7.jpg';
+import activityTransylvania8 from '../assets/activity-transylvania/activity-transylvania-8.jpg';
 import activityBucovina1 from '../assets/activity-transylvania/activity-bucovina-1.jpg';
 import activityBucovina2 from '../assets/activity-transylvania/activity-bucovina-2.jpg';
 import activityBucovina3 from '../assets/activity-transylvania/activity-bucovina-3.jpg';
@@ -123,6 +126,9 @@ const cardImages = [
   activityTransylvania3,
   activityTransylvania4,
   activityTransylvania5,
+  activityTransylvania6,
+  activityTransylvania7,
+  activityTransylvania8,
   activityBucovina1,
   activityBucovina2,
   activityBucovina3,
@@ -132,11 +138,13 @@ const cardImages = [
   activityMaramures4,
   activityMaramures5,
   activityMaramures6,
-  activityMaramures7
+  activityMaramures7,
+  activityTransylvania1,
+  activityBucovina1
 ];
 
 let activities = [];
-for (let i = 0; i < 16; i++) {
+for (let i = 0; i < 18; i++) {
   activities.push({
     ...activitiesImages[0],
     title: 'Test Activity',
