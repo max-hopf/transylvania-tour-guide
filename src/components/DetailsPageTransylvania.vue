@@ -41,7 +41,7 @@ import DetailsPageEssentialsSection from './DetailsPageEssentialsSection.vue';
 import DetailsPageHeroSection from './DetailsPageHeroSection.vue';
 import DetailsPageGallery from './DetailsPageGallery.vue';
 import TabbedInterface from './TabbedInterface.vue';
-import heroImg from '../assets/activity-title-images/transylvania-title-img.jpg';
+import heroImg from '../assets/activity-title-images/transylvania-title-img-5.jpg';
 
 import img01 from '../assets/detailsPageGalleryTransylvania/1655912594818_l.jpg';
 import img02 from '../assets/detailsPageGalleryTransylvania/20191023_213139_p.jpg';
