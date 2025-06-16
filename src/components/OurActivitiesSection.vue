@@ -12,7 +12,7 @@
         v-for="activity in activities"
         :key="activity.title"
         class="activity-card"
-        :to="activity.title.toLowerCase() === 'transylvania' ? '/activity/transylvania' : activity.title.toLowerCase() === 'maramures' ? '/activity/maramures' : `/activity/${slugify(activity.title)}`"
+        :to="activity.title.toLowerCase() === 'transylvania' ? '/activity/transylvania' : activity.title.toLowerCase() === 'maramures' ? '/activity/maramures' : activity.title.toLowerCase() === 'bucovina' ? '/activity/bucovina' : `/activity/${slugify(activity.title)}`"
         style="text-decoration: none; color: inherit;"
       >
         <div class="activity-days-badge">

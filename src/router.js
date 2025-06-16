@@ -6,6 +6,7 @@ const BlogPostPage = () => import('./components/BlogPostPage.vue');
 // const ActivityDetail = () => import('./components/ActivityDetail.vue');
 const DetailsPageTransylvania = () => import('./components/DetailsPageTransylvania.vue');
 const DetailsPageMaramures = () => import('./components/DetailsPageMaramures.vue');
+const DetailsPageBucovina = () => import('./components/DetailsPageBucovina.vue');
 const AboutUsPage = () => import('./components/AboutUsPage.vue');
 const PrivacyPolicyPage = () => import('./components/PrivacyPolicyPage.vue');
 import TermsAndConditionsPage from './components/TermsAndConditionsPage.vue';
@@ -35,6 +36,11 @@ const routes = [
     path: '/activity/maramures',
     name: 'DetailsPageMaramures',
     component: DetailsPageMaramures
+  },
+  {
+    path: '/activity/bucovina',
+    name: 'DetailsPageBucovina',
+    component: DetailsPageBucovina
   },
   // {
   //   path: '/activity/:activityId',
