@@ -1,5 +1,9 @@
 <template>
   <section class="details-page-gallery">
+    <div class="gallery-label">
+      Gallery <span class="gallery-label-line"></span>
+    </div>
+    <h2 class="gallery-title">Explore Images</h2>
     <div class="gallery-grid">
       <div
         v-for="(img, idx) in images"
@@ -28,20 +32,51 @@ defineProps({
 </script>
 
 <style scoped>
+
+.gallery-label {
+  font-size: 1.05rem;
+  color: var(--color-primary-text);
+  font-weight: 600;
+  margin-bottom: 0.6rem;
+  margin-top: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 0.7rem;
+  justify-content: center;
+}
+.gallery-label-line {
+  display: inline-block;
+  height: 2px;
+  width: 36px;
+  background: var(--color-primary-text);
+  border-radius: 2px;
+}
+.gallery-title {
+  font-size: 2.3rem;
+  font-weight: bold;
+  color: #222;
+  margin-top: 0;
+}
+
 .details-page-gallery {
   width: 100%;
   display: flex;
   justify-content: center;
+  background-color:rgb(243, 243, 243);
+  flex-direction: column;
+  align-items: center;
+  padding: 1rem 0;
 }
 .gallery-grid {
   display: grid;
-  padding: 2rem 1rem;
   grid-template-columns: repeat(3, 1fr);
   grid-auto-rows: 6vw;
   grid-auto-flow: dense;
   gap: 1rem;
   width: 100%;
   max-width: 1200px;
+  box-sizing: border-box;
+  padding: 0 1rem;
 }
 .gallery-item {
   /* border-radius: 12px;

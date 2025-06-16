@@ -44,7 +44,7 @@ const props = defineProps({
   background-size: cover;
   background-position: center;
   background-repeat: no-repeat;
-  filter: brightness(0.6) blur(0px);
+  filter: brightness(0.8) blur(0px);
   z-index: 0;
 }
 .activity-details-container,

@@ -10,7 +10,6 @@
     groupSize="2 – 8 participants"
   />
 
-  
   <section class="activity-details-section overview-section">
     <div class="activity-details-container">
       <p class="activity-details-intro">
@@ -27,6 +26,8 @@
         </p>
       </div>
     </section>
+
+  <TabbedInterface :tabs="transylvaniaTabs" />
     
     <DetailsPageGallery :images="galleryImages" />
 
@@ -39,6 +40,7 @@ import FooterSection from './FooterSection.vue';
 import DetailsPageEssentialsSection from './DetailsPageEssentialsSection.vue';
 import DetailsPageHeroSection from './DetailsPageHeroSection.vue';
 import DetailsPageGallery from './DetailsPageGallery.vue';
+import TabbedInterface from './TabbedInterface.vue';
 import heroImg from '../assets/activity-title-images/transylvania-title-img.jpg';
 
 import img1 from '../assets/detailsPageGalleryTransylvania/1655912594818.jpg';
@@ -78,6 +80,49 @@ const galleryImages = [
   { src: img15, alt: '', orientation: 'landscape' }, // 4000x2252
   { src: img16, alt: '', orientation: 'landscape' }, // 4000x2252
 ];
+const transylvaniaTabs = [
+  {
+    label: `Highlights of the Tour`,
+    content: `You will visit Transylvania’s renowned cities: Brașov, Sibiu, and the Sighișoara Citadel, each featuring guided tours of their most significant landmarks.<br><br>
+    <strong>The standard itinerary includes:</strong><ul style='padding-left:1.2em; margin:0;'>
+      <li>Sighisoara Citadel</li>
+      <li>Viscri Village</li>
+      <li>Bran Castle</li>
+      <li>Transfăgărășan Road</li>
+      <li>Alba Iulia Citadel</li>
+    </ul>`
+  },
+  {
+    label: `What’s Included`,
+    content: `<ul style='padding-left:1.2em; margin:0;'>
+      <li>Full-time guide/driver</li>
+      <li>All transportation in a modern, comfortable vehicle</li>
+      <li>2 nights’ accommodation with breakfast</li>
+      <li>Entrance fees</li>
+      <li>Bottled water provided during transfers</li>
+    </ul>`
+  },
+  {
+    label: `Optional Extension`,
+    content: `<strong>The itinerary is flexible and can be customized to include additional sites such as:</strong>
+    <ul style='padding-left:1.2em; margin:0;'>
+      <li>Biertan Church</li>
+      <li>Turda Salt Mine</li>
+      <li>Libearty Bear Sanctuary</li>
+      <li>Peleș Castle</li>
+      <li>Corvin Castle</li>
+    </ul><br>
+    We can also arrange village walks and visits to meet local residents, or add an extra night in Brașov for a more relaxed pace and the chance to visit additional locations.`
+  },
+  {
+    label: `Booking Policy`,
+    content: `<ul style='padding-left:1.2em; margin:0;'>
+      <li>A 30% deposit is required to secure your booking.</li>
+      <li>Cancellation policy: Full refund available for cancellations made at least 7 days before the tour start date.</li>
+    </ul>`
+  }
+];
+
 </script>
 
 <style scoped>
