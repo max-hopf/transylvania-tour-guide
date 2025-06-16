@@ -1,126 +1,61 @@
 <template>
-  <!-- ... -->
-  <!-- <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div> -->
-  <section class="activities-section fade-slide-init fade-slide-right" id="activities" ref="activitiesSectionRef">
-    <!-- ... -->
-    <!-- <h2 class="activities-title">Our Activities</h2> -->
-    <div class="activity-label">
-      Our Activities <span class="activity-label-line"></span>
+  <router-link
+    class="activity-card"
+    :to="activityLink"
+    style="text-decoration: none; color: inherit;"
+  >
+    <div class="activity-days-badge">
+      <span class="days-number">{{ durationValue }}</span>
+      <span class="days-label">{{ durationLabel }}</span>
     </div>
-    <h2 class="activity-title">Explore Activities</h2>
-
-    <div class="activities-grid">
-      <ActivityCard
-        v-for="activity in activities"
-        :key="activity.title"
-        :title="activity.title"
-        :desc="activity.desc"
-        :durationValue="activity.durationValue"
-        :durationLabel="activity.durationLabel"
-        :price="activity.price"
-        :image="activity.image"
+    <div class="activity-img-wrapper">
+      <img
+        :src="image"
+        :alt="title"
+        class="activity-img"
+        loading="lazy"
       />
     </div>
-  </section>
+    <div class="activity-info">
+      <div class="activity-price">
+        <span v-if="price && price.includes('/person')">
+          {{ price.split('/person')[0] }}<span class="per-person">/person</span>
+        </span>
+        <span v-else>
+          {{ price }}
+        </span>
+      </div>
+      <h3 class="activity-name">{{ title }}</h3>
+      <p class="activity-desc">{{ desc }}</p>
+    </div>
+  </router-link>
 </template>
 
 <script setup>
-import ActivityCard from './ActivityCard.vue';
-import { ref, onMounted, onBeforeUnmount } from 'vue';
-import transylvaniaImg from '../assets/activity-card-images/activity-transylvania-1.jpg';
-import maramuresImg from '../assets/activity-card-images/activity-maramures-1.jpg';
-import bucovinaImg from '../assets/activity-card-images/activity-bucovina-2.jpg';
-
-const activities = [
-  {
-    title: 'Transylvania',
-    desc: 'Explore breathtaking mountain trails with our expert guides.',
-    durationValue: 3,
-    durationLabel: 'days',
-    price: 'Start from 790 € / person',
-    image: transylvaniaImg,
-  },
-  {
-    title: 'Maramures',
-    desc: 'Discover Transylvania’s vibrant village culture.',
-    durationValue: 3,
-    durationLabel: 'days',
-    price: 'Start from 590 € / person',
-    image: maramuresImg,
-  },
-  {
-    title: 'Bucovina',
-    desc: 'Experience the thrill of spotting rare wildlife in their natural habitat.',
-    durationValue: 3,
-    durationLabel: 'days',
-    price: 'Start from 590 € / person',
-    image: bucovinaImg,
-  },
-];
-const activitiesSectionRef = ref(null);
-let observer = null;
-
-onMounted(() => {
-  const el = activitiesSectionRef.value;
-  const triggerAnimation = () => {
-    if (el && !el.classList.contains('fade-slide-in')) {
-      el.classList.add('fade-slide-in');
-    }
-  };
-
-  // On all screens, use IntersectionObserver for animation
-  // Check if already visible on mount
-  if (el) {
-    const rect = el.getBoundingClientRect();
-    const inView = rect.top < window.innerHeight && rect.bottom > 0;
-    if (inView) {
-      setTimeout(triggerAnimation, 200); // short delay for effect
-      return;
-    }
-  }
-
-  observer = new window.IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        triggerAnimation();
-        observer.disconnect();
-      }
-    },
-    { threshold: window.innerWidth <= 750 ? 0.01 : 0.25 }
-  );
-  if (el) {
-    observer.observe(el);
-  }
+import { computed } from 'vue';
+const props = defineProps({
+  title: { type: String, required: true },
+  desc: { type: String, required: true },
+  durationValue: { type: [String, Number], required: true },
+  durationLabel: { type: String, required: true },
+  price: { type: String, required: true },
+  image: { type: [String, Object], required: true },
 });
 
-onBeforeUnmount(() => {
-  if (observer) observer.disconnect();
-});
-function slugify(title) {
-  return title.toLowerCase().replace(/\s+/g, '-');
+function slugify(str) {
+  return str.toLowerCase().replace(/\s+/g, '-');
 }
 
+const activityLink = computed(() => {
+  const title = props.title.toLowerCase();
+  if (title === 'transylvania') return '/activity/transylvania';
+  if (title === 'maramures') return '/activity/maramures';
+  if (title === 'bucovina') return '/activity/bucovina';
+  return `/activity/${slugify(props.title)}`;
+});
 </script>
 
 <style scoped>
-.activities-section {
-  background: transparent;
-  padding: 8rem 1rem 4rem 1rem;
-  text-align: center;
-}
-.activities-title {
-  font-size: 2.2rem;
-  font-weight: bold;
-  color: #e08a1e;
-  margin-bottom: 2.5rem;
-}
-.activities-grid {
-  display: flex;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 2rem;
-  margin-top: 2.5rem;
-}
 .activity-card {
   background: #fff;
   border-radius: 18px;
@@ -294,5 +229,6 @@ function slugify(title) {
   top: 0;
   left: 0;
 }
+
 
 </style>

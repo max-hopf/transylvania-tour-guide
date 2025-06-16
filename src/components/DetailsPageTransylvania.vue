@@ -7,7 +7,7 @@
   <DetailsPageEssentialsSection
     duration="3 days"
     price="from 790 € / person"
-    groupSize="2 – 8 participants"
+    groupSize="2 – 7 participants"
   />
 
   <section class="activity-details-section overview-section">
