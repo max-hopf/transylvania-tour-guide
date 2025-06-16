@@ -15,11 +15,11 @@
       <p class="activity-details-intro">
         <strong>Transylvania is a land of timeless charm—where medieval castles and
           fortified towns meet rolling hills dotted with haystacks and untouched
-          wilderness.</strong><br />
+          wilderness.</strong><br /><div class="spacer"></div>
           This enchanting region offers a rare glimpse into a way of life steeped
           in tradition and natural beauty. Friendly locals will welcome you with
           home-cooked meals prepared from their own gardens, often accompanied by
-          folk tales and stories passed down through generations.<br />
+          folk tales and stories passed down through generations.<br /><div class="spacer"></div>
           On this tour, you will explore Transylvania’s most iconic sights and
           immerse yourself in the very essence of what makes this region so
           captivating and unforgettable.
@@ -110,17 +110,6 @@ const galleryImages = [
 ];
 const transylvaniaTabs = [
   {
-    label: `Highlights of the Tour`,
-    content: `You will visit Transylvania’s renowned cities: Brașov, Sibiu, and the Sighișoara Citadel, each featuring guided tours of their most significant landmarks.<br><br>
-    <strong>The standard itinerary includes:</strong><ul style='padding-left:1.2em; margin:0;'>
-      <li>Sighisoara Citadel</li>
-      <li>Viscri Village</li>
-      <li>Bran Castle</li>
-      <li>Transfăgărășan Road</li>
-      <li>Alba Iulia Citadel</li>
-    </ul>`
-  },
-  {
     label: `What’s Included`,
     content: `<ul style='padding-left:1.2em; margin:0;'>
       <li>Full-time guide/driver</li>
@@ -131,8 +120,16 @@ const transylvaniaTabs = [
     </ul>`
   },
   {
-    label: `Optional Extension`,
-    content: `<strong>The itinerary is flexible and can be customized to include additional sites such as:</strong>
+    label: `Highlights of the Tour`,
+    content: `You will visit Transylvania’s renowned cities: Brașov, Sibiu, and the Sighișoara Citadel, each featuring guided tours of their most significant landmarks.<br><br>
+    <strong>The standard itinerary includes:</strong><ul style='padding-left:1.2em; margin:0;'>
+      <li>Sighisoara Citadel</li>
+      <li>Viscri Village</li>
+      <li>Bran Castle</li>
+      <li>Transfăgărășan Road</li>
+      <li>Alba Iulia Citadel</li>
+    </ul><br>
+    <strong>The itinerary is flexible and can be customized to include additional sites such as:</strong>
     <ul style='padding-left:1.2em; margin:0;'>
       <li>Biertan Church</li>
       <li>Turda Salt Mine</li>
@@ -140,7 +137,12 @@ const transylvaniaTabs = [
       <li>Peleș Castle</li>
       <li>Corvin Castle</li>
     </ul><br>
-    We can also arrange village walks and visits to meet local residents, or add an extra night in Brașov for a more relaxed pace and the chance to visit additional locations.`
+    We can also arrange village walks and visits to meet local residents.`
+  
+  },
+  {
+    label: `Optional Extension`,
+    content: `Add an extra night in Brașov for a more relaxed pace and the chance to visit additional locations.`
   },
   {
     label: `Booking Policy`,
@@ -156,42 +158,22 @@ const transylvaniaTabs = [
 <style scoped>
 .activity-details-section {
   background: #fff;
-  padding: 3.5rem 1rem 2.5rem 1rem;
+  padding: 4rem 1rem 4rem 1rem;
   color: #222;
 }
 .activity-details-container {
-  max-width: 800px;
+  max-width: 75ch;
   margin: 0 auto;
   text-align: left;
+  font-size: 1rem
+}
+.activity-details-container .spacer {
+  display: block;
+  height: 0.5rem;
 }
 
-
-</style>
-
-<style scoped>
-
-
-
-
-
-
-.activity-details-content {
+.activity-details-intro {
   text-align: left;
   color: #222;
 }
-.activity-details-content h2 {
-  color: #e08a1e;
-  margin-top: 2rem;
-  margin-bottom: 1rem;
-}
-.activity-details-content ul {
-  margin-left: 1.5rem;
-  margin-bottom: 1.5rem;
-}
-.activity-details-content li {
-  font-size: 1rem;
-  margin-bottom: 0.5rem;
-}
-
-
 </style>

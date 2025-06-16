@@ -40,7 +40,7 @@ const activeTab = ref(0);
   width: 100%;
   background-color: #fff;
   margin: 0;
-  padding: 4rem 0;
+  padding-bottom: 6rem;
 }
 
 .tabbed-interface {
@@ -53,11 +53,12 @@ const activeTab = ref(0);
   display: flex;
   border-bottom: 2px solid #222;
   background: #fff;
+  justify-content: space-between;
 }
 .tab {
   position: relative;
   padding: 1rem 1.5rem 0.7rem 1.5rem;
-  font-size: 1.12rem;
+  font-size: 1rem;
   font-weight: 600;
   color: #222;
   background: none;
