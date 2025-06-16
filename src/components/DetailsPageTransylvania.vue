@@ -43,42 +43,70 @@ import DetailsPageGallery from './DetailsPageGallery.vue';
 import TabbedInterface from './TabbedInterface.vue';
 import heroImg from '../assets/activity-title-images/transylvania-title-img.jpg';
 
-import img1 from '../assets/detailsPageGalleryTransylvania/1655912594818.jpg';
-import img2 from '../assets/detailsPageGalleryTransylvania/20240104_141958.jpg';
-import img3 from '../assets/detailsPageGalleryTransylvania/20240520_152930.jpg';
-import img4 from '../assets/detailsPageGalleryTransylvania/20240520_170712.jpg';
-import img5 from '../assets/detailsPageGalleryTransylvania/20240615_125832.jpg';
-import img6 from '../assets/detailsPageGalleryTransylvania/20240615_155557.jpg';
-import img7 from '../assets/detailsPageGalleryTransylvania/20240930_204935.jpg';
-import img8 from '../assets/detailsPageGalleryTransylvania/20240930_205752.jpg';
-import img9 from '../assets/detailsPageGalleryTransylvania/20241001_105424.jpg';
-import img10 from '../assets/detailsPageGalleryTransylvania/20241001_170020.jpg';
-import img11 from '../assets/detailsPageGalleryTransylvania/20241001_191237.jpg';
-import img12 from '../assets/detailsPageGalleryTransylvania/20241002_131812.jpg';
-import img13 from '../assets/detailsPageGalleryTransylvania/20241002_165931.jpg';
-import img14 from '../assets/detailsPageGalleryTransylvania/20241003_193157.jpg';
-import img15 from '../assets/detailsPageGalleryTransylvania/20241005_202713.jpg';
-import img16 from '../assets/detailsPageGalleryTransylvania/20241021_120955.jpg';
-import img17 from '../assets/detailsPageGalleryTransylvania/IMG_20220613_084523_930.jpg';
+import img01 from '../assets/detailsPageGalleryTransylvania/1655912594818_l.jpg';
+import img02 from '../assets/detailsPageGalleryTransylvania/20191023_213139_p.jpg';
+import img03 from '../assets/detailsPageGalleryTransylvania/20200128_203722_l.jpg';
+import img04 from '../assets/detailsPageGalleryTransylvania/20220604_154243_l.jpg';
+import img05 from '../assets/detailsPageGalleryTransylvania/20220612_122104_l.jpg';
+import img06 from '../assets/detailsPageGalleryTransylvania/20220612_125717_l.jpg';
+import img07 from '../assets/detailsPageGalleryTransylvania/20220618_113254_l.jpg';
+import img08 from '../assets/detailsPageGalleryTransylvania/20220622_185158_l.jpg';
+import img09 from '../assets/detailsPageGalleryTransylvania/20220622_190541_l.jpg';
+import img10 from '../assets/detailsPageGalleryTransylvania/20220817_112536_p.jpg';
+import img11 from '../assets/detailsPageGalleryTransylvania/20220829_094900_p.jpg';
+import img12 from '../assets/detailsPageGalleryTransylvania/20220829_131008_p.jpg';
+import img13 from '../assets/detailsPageGalleryTransylvania/20230128_132646_p.jpg';
+import img14 from '../assets/detailsPageGalleryTransylvania/20231102_120356_l.jpg';
+import img15 from '../assets/detailsPageGalleryTransylvania/20240104_141725_l.jpg';
+import img16 from '../assets/detailsPageGalleryTransylvania/20240104_141958_p.jpg';
+import img17 from '../assets/detailsPageGalleryTransylvania/20240520_152930_l.jpg';
+import img18 from '../assets/detailsPageGalleryTransylvania/20240520_170712_l.jpg';
+import img19 from '../assets/detailsPageGalleryTransylvania/20240615_125832_l.jpg';
+import img20 from '../assets/detailsPageGalleryTransylvania/20240615_155557_l.jpg';
+import img21 from '../assets/detailsPageGalleryTransylvania/20240930_204935_l.jpg';
+import img22 from '../assets/detailsPageGalleryTransylvania/20240930_205752_p.jpg';
+import img23 from '../assets/detailsPageGalleryTransylvania/20241001_105424_l.jpg';
+import img24 from '../assets/detailsPageGalleryTransylvania/20241001_170020_l.jpg';
+import img25 from '../assets/detailsPageGalleryTransylvania/20241001_191237_p.jpg';
+import img26 from '../assets/detailsPageGalleryTransylvania/20241002_131812_l.jpg';
+import img27 from '../assets/detailsPageGalleryTransylvania/20241002_165931_l.jpg';
+import img28 from '../assets/detailsPageGalleryTransylvania/20241003_193157_p.jpg';
+import img29 from '../assets/detailsPageGalleryTransylvania/20241005_202713_p.jpg';
+import img30 from '../assets/detailsPageGalleryTransylvania/20241021_120955_p.jpg';
+import img31 from '../assets/detailsPageGalleryTransylvania/IMG_20220613_084523_930_s.jpg';
 
 const galleryImages = [
-  { src: img2, alt: '', orientation: 'portrait' }, // 2120x3766
-  { src: img1, alt: '', orientation: 'landscape' }, // 2730x1536
-  { src: img4, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img5, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img8, alt: '', orientation: 'portrait' }, // 2252x4000
-  { src: img3, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img15, alt: '', orientation: 'portrait' }, // 4000x2252
-  { src: img6, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img7, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img9, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img10, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img17, alt: '', orientation: 'square' }, // 1080x1080
-  { src: img14, alt: '', orientation: 'portrait' }, // 4000x2252
-  { src: img11, alt: '', orientation: 'portrait' }, // 2252x4000
-  { src: img13, alt: '', orientation: 'landscape' }, // 4000x2252
-  { src: img16, alt: '', orientation: 'portrait' }, // 4000x2252
-  { src: img12, alt: '', orientation: 'landscape' }, // 4000x2252
+  { src: img16, alt: '', orientation: 'portrait' },
+  { src: img15, alt: '', orientation: 'landscape' },
+  { src: img01, alt: '', orientation: 'landscape' },
+  { src: img02, alt: '', orientation: 'portrait' },
+  { src: img03, alt: '', orientation: 'landscape' },
+  { src: img04, alt: '', orientation: 'landscape' },
+  { src: img05, alt: '', orientation: 'landscape' },
+  { src: img06, alt: '', orientation: 'landscape' },
+  { src: img10, alt: '', orientation: 'portrait' },
+  { src: img07, alt: '', orientation: 'landscape' },
+  { src: img08, alt: '', orientation: 'landscape' },
+  { src: img09, alt: '', orientation: 'landscape' },
+  { src: img11, alt: '', orientation: 'portrait' },
+  { src: img12, alt: '', orientation: 'portrait' },
+  { src: img13, alt: '', orientation: 'portrait' },
+  { src: img14, alt: '', orientation: 'landscape' },
+  { src: img17, alt: '', orientation: 'landscape' },
+  { src: img18, alt: '', orientation: 'landscape' },
+  { src: img19, alt: '', orientation: 'landscape' },
+  { src: img20, alt: '', orientation: 'landscape' },
+  { src: img21, alt: '', orientation: 'landscape' },
+  { src: img22, alt: '', orientation: 'portrait' },
+  { src: img23, alt: '', orientation: 'landscape' },
+  { src: img24, alt: '', orientation: 'landscape' },
+  { src: img25, alt: '', orientation: 'portrait' },
+  { src: img26, alt: '', orientation: 'landscape' },
+  { src: img27, alt: '', orientation: 'landscape' },
+  { src: img28, alt: '', orientation: 'portrait' },
+  { src: img29, alt: '', orientation: 'portrait' },
+  { src: img30, alt: '', orientation: 'portrait' },
+  { src: img31, alt: '', orientation: 'portrait' },
 ];
 const transylvaniaTabs = [
   {
