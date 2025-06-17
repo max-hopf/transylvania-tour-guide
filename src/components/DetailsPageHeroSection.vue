@@ -97,4 +97,8 @@ const props = defineProps({
   stroke: #111 !important;
 }
 
+:deep(.nav-menu a:hover) {
+    color: var(--color-primary-text) !important;
+}
+
 </style>
