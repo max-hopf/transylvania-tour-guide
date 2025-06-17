@@ -4,31 +4,98 @@
       Gallery <span class="gallery-label-line"></span>
     </div>
     <h2 class="gallery-title">Explore Images</h2>
-    <div class="gallery-grid">
+    <div class="gallery-grid-justified" ref="containerRef">
       <div
-        v-for="(img, idx) in images"
-        :key="idx"
-        class="gallery-item"
-        :class="img.orientation === 'landscape' ? 'landscape' : 'portrait'"
+        v-for="(row, rowIdx) in rows"
+        :key="'row-' + rowIdx"
+        class="gallery-row"
       >
-        <img :src="img.src" :alt="img.alt || ''" />
+        <div
+          v-for="(img, idx) in row"
+          :key="img.src + idx"
+          class="gallery-item"
+          :style="{
+            width: img.displayWidth + 'px',
+            height: img.displayHeight + 'px',
+            marginRight: idx < row.length - 1 ? gap + 'px' : 0
+          }"
+        >
+          <img :src="img.src" :alt="img.alt || ''" :style="{width: '100%', height: '100%', objectFit: 'cover'}" />
+        </div>
       </div>
     </div>
   </section>
 </template>
 
 <script setup>
-/**
- * Props:
- * images: Array of { src: string, alt?: string, orientation: 'portrait'|'landscape' }
- */
-defineProps({
+import { ref, computed, onMounted, onBeforeUnmount, watch } from 'vue';
+
+const props = defineProps({
   images: {
     type: Array,
     required: true,
     default: () => []
   }
 });
+
+// Configurable
+const rowHeight = 420; // px
+const gap = 8; // px
+const containerRef = ref(null);
+const containerWidth = ref(1200); // fallback
+
+function getAspectRatio(img) {
+  // Try to infer from orientation, fallback to 3:2 or 2:3
+  if (img.orientation === 'landscape') return 3/2;
+  if (img.orientation === 'portrait') return 2/3;
+  return 1; // square
+}
+
+function computeRows(images, containerWidth, rowHeight, gap) {
+  const rows = [];
+  let row = [];
+  let rowAspectSum = 0;
+  for (let i = 0; i < images.length; i++) {
+    const img = images[i];
+    const aspect = getAspectRatio(img);
+    row.push({ ...img, _aspect: aspect });
+    rowAspectSum += aspect;
+    // Estimate total width if we add this image
+    const rowGap = gap * (row.length - 1);
+    const estRowWidth = rowAspectSum * rowHeight + rowGap;
+    if (estRowWidth >= containerWidth * 0.95 || i === images.length - 1) {
+      // Calculate actual row height for this row
+      const scale = (containerWidth - rowGap) / (rowAspectSum * rowHeight);
+      const displayRowHeight = rowHeight * scale;
+      rows.push(row.map(img => ({
+        ...img,
+        displayWidth: img._aspect * displayRowHeight,
+        displayHeight: displayRowHeight
+      })));
+      row = [];
+      rowAspectSum = 0;
+    }
+  }
+  return rows;
+}
+
+const rows = ref([]);
+
+function updateRows() {
+  if (!containerRef.value) return;
+  containerWidth.value = containerRef.value.clientWidth;
+  rows.value = computeRows(props.images, containerWidth.value, rowHeight, gap);
+}
+
+onMounted(() => {
+  window.addEventListener('resize', updateRows);
+  setTimeout(updateRows, 50); // after mount
+});
+onBeforeUnmount(() => {
+  window.removeEventListener('resize', updateRows);
+});
+watch(() => props.images, updateRows);
+
 </script>
 
 <style scoped>
@@ -67,16 +134,23 @@ defineProps({
   align-items: center;
   padding: 1rem 0;
 }
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(3, 1fr);
-  grid-auto-rows: 6vw;
-  grid-auto-flow: dense;
-  gap: 1rem;
+.gallery-grid-justified {
   width: 100%;
   max-width: 1200px;
+  margin: 0 auto;
   box-sizing: border-box;
   padding: 0 1rem;
+}
+.gallery-row {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 8px;
+}
+.gallery-item {
+  background: #fff;
+  overflow: hidden;
+  display: block;
+  /* border-radius: 8px; */
 }
 .gallery-item {
   /* border-radius: 12px;
