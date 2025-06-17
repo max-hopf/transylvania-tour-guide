@@ -1,5 +1,7 @@
 <template>
-  <section class="contact-section" id="contact">
+  <section class="contact-section" id="contact" ref="contactSectionRef">
+  <div class="fade-slide-init" ref="contactAnimRef">
+
     <div class="contact-label">
       Contact <span class="contact-label-line"></span>
     </div>
@@ -32,11 +34,12 @@
         </div>
       </form>
     </div>
-  </section>
+    </div>
+</section>
 </template>
 
 <script setup>
-import { ref, computed, onMounted } from 'vue';
+import { ref, computed, onMounted, onBeforeUnmount } from 'vue';
 import emailjs from 'emailjs-com';
 
 const name = ref('');
@@ -51,7 +54,42 @@ const formattedDraftTime = computed(() => {
   return new Date(draftSavedAt.value).toLocaleTimeString();
 });
 
+const contactSectionRef = ref(null);
+const contactAnimRef = ref(null);
+let observer = null;
+
 onMounted(() => {
+  // Animate contact section content (not section) on scroll
+  const el = contactAnimRef.value;
+  const triggerAnimation = () => {
+    if (el && !el.classList.contains('fade-slide-in')) {
+      el.classList.add('fade-slide-in');
+    }
+  };
+  // Check if already visible on mount
+  if (el) {
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      setTimeout(triggerAnimation, 200);
+    } else if ('IntersectionObserver' in window) {
+      observer = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            triggerAnimation();
+            observer.disconnect();
+          }
+        },
+        { threshold: 0.15 }
+      );
+      observer.observe(el);
+    } else {
+      // fallback for old browsers
+      window.addEventListener('scroll', triggerAnimation, { passive: true });
+    }
+  }
+
+  // Existing draft restore logic
   const savedMessage = localStorage.getItem('tgDraftMessage');
   const savedName = localStorage.getItem('tgDraftName');
   const savedEmail = localStorage.getItem('tgDraftEmail');
@@ -60,6 +98,10 @@ onMounted(() => {
   if (savedName) name.value = savedName;
   if (savedEmail) email.value = savedEmail;
   if (savedTimestamp) draftSavedAt.value = savedTimestamp;
+});
+
+onBeforeUnmount(() => {
+  if (observer) observer.disconnect();
 });
 
 function saveDraft() {
@@ -106,7 +148,7 @@ async function sendEmail(event) {
 <style scoped>
 .contact-section {
   background: #f7f9fa;
-  padding: 4rem 1rem 3rem 1rem;
+  padding: 8rem 1rem 8rem 1rem;
   text-align: center;
 }
 .contact-label {

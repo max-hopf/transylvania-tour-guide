@@ -1,6 +1,8 @@
 <template>
   <!-- <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div> -->
-  <section class="blog-section fade-slide-init fade-slide-right" id="blog" ref="blogSectionRef">
+  <section class="blog-section" id="blog" ref="blogSectionRef">
+  <div class="fade-slide-init" ref="blogAnimRef">
+
     <div class="blog-label">
       Our Blogs <span class="blog-label-line"></span>
     </div>
@@ -48,7 +50,8 @@
         {{ showAll ? 'Show Less' : 'See all Blog Posts' }}
       </button>
     </div>
-  </section>
+    </div>
+</section>
 </template>
 
 <script setup>
@@ -57,6 +60,43 @@ import { useRouter } from 'vue-router';
 
 const showAll = ref(false);
 const router = useRouter();
+
+const blogAnimRef = ref(null);
+// Only declare observer ONCE in this script!
+// let observer = null; (already declared above if present)
+
+onMounted(() => {
+  // Animate blog section content (not section) on scroll
+  const el = blogAnimRef.value;
+  const triggerAnimation = () => {
+    if (el && !el.classList.contains('fade-slide-in')) {
+      el.classList.add('fade-slide-in');
+    }
+  };
+  // Check if already visible on mount
+  if (el) {
+    const rect = el.getBoundingClientRect();
+    const inView = rect.top < window.innerHeight && rect.bottom > 0;
+    if (inView) {
+      setTimeout(triggerAnimation, 200);
+      return;
+    }
+    if ('IntersectionObserver' in window) {
+      observer = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            triggerAnimation();
+            observer.disconnect();
+          }
+        },
+        { threshold: window.innerWidth <= 750 ? 0.01 : 0.25 }
+      );
+      observer.observe(el);
+    } else {
+      window.addEventListener('scroll', triggerAnimation, { passive: true });
+    }
+  }
+});
 
 import { images as blogImages } from './blogImages.js';
 import { images as heroImages } from './heroImages.js';
@@ -179,7 +219,7 @@ onBeforeUnmount(() => {
 
 <style scoped>
 .blog-section {
-  padding: 8rem 0 4rem 0;
+  padding: 8rem 0 8rem 0;
   background: transparent;
   text-align: center;
 }

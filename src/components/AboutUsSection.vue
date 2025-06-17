@@ -1,5 +1,7 @@
 <template>
-  <section class="about-us-section fade-slide-init fade-slide-left" id="about" ref="aboutSectionRef">
+  <section class="about-us-section" id="about" ref="aboutSectionRef">
+  <div class="fade-slide-init" ref="aboutAnimRef">
+
     <div class="about-container">
       <div class="about-text">
         <div class="about-label">
@@ -22,7 +24,8 @@
 </picture>
       </div>
     </div>
-  </section>
+    </div>
+</section>
 </template>
 
 <script setup>
@@ -33,37 +36,39 @@ import aboutImg1Webp from '../assets/about-us-1.webp';
 import aboutImg2Webp from '../assets/about-us-2.webp';
 
 const aboutSectionRef = ref(null);
+const aboutAnimRef = ref(null);
 let observer = null;
 
 onMounted(() => {
-  const el = aboutSectionRef.value;
+  // Animate about section content (not section) on scroll
+  const el = aboutAnimRef.value;
   const triggerAnimation = () => {
     if (el && !el.classList.contains('fade-slide-in')) {
       el.classList.add('fade-slide-in');
     }
   };
-
   // Check if already visible on mount
   if (el) {
     const rect = el.getBoundingClientRect();
     const inView = rect.top < window.innerHeight && rect.bottom > 0;
     if (inView) {
-      setTimeout(triggerAnimation, 200); // short delay for effect
+      setTimeout(triggerAnimation, 200);
       return;
     }
-  }
-
-  observer = new window.IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        triggerAnimation();
-        observer.disconnect();
-      }
-    },
-    { threshold: 0.25 }
-  );
-  if (el) {
-    observer.observe(el);
+    if ('IntersectionObserver' in window) {
+      observer = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            triggerAnimation();
+            observer.disconnect();
+          }
+        },
+        { threshold: window.innerWidth <= 750 ? 0.01 : 0.25 }
+      );
+      observer.observe(el);
+    } else {
+      window.addEventListener('scroll', triggerAnimation, { passive: true });
+    }
   }
 });
 
@@ -75,7 +80,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .about-us-section {
   background: #f6f8fb;
-  padding: 8rem 1.5rem 4rem 1.5rem;
+  padding: 8rem 1.5rem 8rem 1.5rem;
   display: flex;
   justify-content: center;
 }

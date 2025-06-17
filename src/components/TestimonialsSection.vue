@@ -123,7 +123,7 @@ onBeforeUnmount(() => {
 <style scoped>
 .testimonials-section {
   background: #f7fafd;
-  padding: 8rem 0 4rem 0;
+  padding: 8rem 0 8rem 0;
   text-align: center;
 }
 @media (max-width: 900px) {

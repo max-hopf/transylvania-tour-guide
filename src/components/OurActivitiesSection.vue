@@ -1,7 +1,9 @@
 <template>
   <!-- ... -->
   <!-- <div class="parallax-hero-bg" :style="{ backgroundImage: `url(${heroImages[0].fallback})` }"></div> -->
-  <section class="activities-section fade-slide-init fade-slide-right" id="activities" ref="activitiesSectionRef">
+  <section class="activities-section" id="activities" ref="activitiesSectionRef">
+  <div class="fade-slide-init" ref="activitiesAnimRef">
+
     <!-- ... -->
     <!-- <h2 class="activities-title">Our Activities</h2> -->
     <div class="activity-label">
@@ -21,7 +23,8 @@
         :image="activity.image"
       />
     </div>
-  </section>
+    </div>
+</section>
 </template>
 
 <script setup>
@@ -58,38 +61,39 @@ const activities = [
   },
 ];
 const activitiesSectionRef = ref(null);
+const activitiesAnimRef = ref(null);
 let observer = null;
 
 onMounted(() => {
-  const el = activitiesSectionRef.value;
+  // Animate activities section content (not section) on scroll
+  const el = activitiesAnimRef.value;
   const triggerAnimation = () => {
     if (el && !el.classList.contains('fade-slide-in')) {
       el.classList.add('fade-slide-in');
     }
   };
-
-  // On all screens, use IntersectionObserver for animation
   // Check if already visible on mount
   if (el) {
     const rect = el.getBoundingClientRect();
     const inView = rect.top < window.innerHeight && rect.bottom > 0;
     if (inView) {
-      setTimeout(triggerAnimation, 200); // short delay for effect
+      setTimeout(triggerAnimation, 200);
       return;
     }
-  }
-
-  observer = new window.IntersectionObserver(
-    ([entry]) => {
-      if (entry.isIntersecting) {
-        triggerAnimation();
-        observer.disconnect();
-      }
-    },
-    { threshold: window.innerWidth <= 750 ? 0.01 : 0.25 }
-  );
-  if (el) {
-    observer.observe(el);
+    if ('IntersectionObserver' in window) {
+      observer = new window.IntersectionObserver(
+        ([entry]) => {
+          if (entry.isIntersecting) {
+            triggerAnimation();
+            observer.disconnect();
+          }
+        },
+        { threshold: window.innerWidth <= 750 ? 0.01 : 0.25 }
+      );
+      observer.observe(el);
+    } else {
+      window.addEventListener('scroll', triggerAnimation, { passive: true });
+    }
   }
 });
 
@@ -105,7 +109,7 @@ function slugify(title) {
 <style scoped>
 .activities-section {
   background: transparent;
-  padding: 8rem 1rem 4rem 1rem;
+  padding: 8rem 1rem 8rem 1rem;
   text-align: center;
 }
 .activities-title {
