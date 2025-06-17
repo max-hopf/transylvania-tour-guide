@@ -222,6 +222,7 @@ onBeforeUnmount(() => {
   padding: 8rem 0 8rem 0;
   background: transparent;
   text-align: center;
+  scroll-margin-top: -80px; /* Adjust this to your fixed header height or desired offset */
 }
 .blog-label {
   font-size: 1.05rem;

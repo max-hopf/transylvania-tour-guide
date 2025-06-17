@@ -111,6 +111,7 @@ function slugify(title) {
   background: transparent;
   padding: 8rem 1rem 8rem 1rem;
   text-align: center;
+  scroll-margin-top: -80px; /* Adjust this to your fixed header height or desired offset */
 }
 .activities-title {
   font-size: 2.2rem;

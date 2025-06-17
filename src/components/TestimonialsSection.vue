@@ -119,7 +119,6 @@ onBeforeUnmount(() => {
 });
 </script>
 
-
 <style scoped>
 .testimonials-section {
   background: #f7fafd;

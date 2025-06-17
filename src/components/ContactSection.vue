@@ -150,6 +150,7 @@ async function sendEmail(event) {
   background: #f7f9fa;
   padding: 8rem 1rem 8rem 1rem;
   text-align: center;
+  scroll-margin-top: -80px; /* Adjust this to your fixed header height or desired offset */
 }
 .contact-label {
   font-weight: 600;
