@@ -81,7 +81,7 @@ const galleryImages = [
   { src: img06, alt: '', orientation: 'portrait' },
   { src: img07, alt: '', orientation: 'portrait' },
   { src: img08, alt: '', orientation: 'portrait' },
-  { src: img09, alt: '', orientation: 'portrait' },
+  { src: img09, alt: '', orientation: 'landscape' },
   { src: img10, alt: '', orientation: 'portrait' },
   { src: img11, alt: '', orientation: 'landscape' },
   { src: img12, alt: '', orientation: 'portrait' },
