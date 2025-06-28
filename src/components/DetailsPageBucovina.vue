@@ -67,7 +67,7 @@ const galleryImages = [
 const bucovinaTabs = [
   {
     label: `What’s Included`,
-    content: `<ul style='padding-left:1.2em; margin:0;'>
+    content: `<ul>
       <li>Professional guidance</li>
       <li>2 nights’ accommodation in family-owned traditional guesthouses (all en-suite)</li>
       <li>Half-board meals featuring organic, locally sourced ingredients</li>
@@ -79,7 +79,7 @@ const bucovinaTabs = [
     label: `Highlights of the Tour`,
     content: `
      <strong>Explore key attractions such as:</strong>
-      <ul style='padding-left:1.2em; margin:0;'>
+      <ul>
         <li>UNESCO-Painted Monasteries, including Voroneț</li>
         <li>Black pottery in Marginea</li>
         <li>Vama Egg Museum</li>
@@ -107,7 +107,7 @@ const bucovinaTabs = [
 <style scoped>
 .activity-details-section {
   background: #fff;
-  padding: 4rem 1rem 4rem 1rem;
+  padding: 4rem 2rem 4rem 2rem;
   color: #222;
 }
 .activity-details-container {

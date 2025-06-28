@@ -111,7 +111,7 @@ const galleryImages = [
 const maramuresTabs = [
   {
     label: `What’s Included`,
-    content: `<ul style='padding-left:1.2em; margin:0;'>
+    content: `<ul>
       <li>All transportation from Cluj-Napoca or other cities in Transylvania</li>
       <li>2-night stay at a traditional local guesthouse</li>
       <li>Half board (breakfast and dinner with locally sourced meals)</li>
@@ -122,13 +122,13 @@ const maramuresTabs = [
   {
     label: `Highlights of the Tour`,
     content: `
-      <ul style='padding-left:1.2em; margin:0;'>
+      <ul>
         <li>Explore 2–3 UNESCO-listed Wooden Churches</li>
         <li>Visit the powerful Memorial to the Victims of Communism in Sighetu Marmației</li>
         <li>Experience the unique Merry Cemetery in Săpânța</li>
         <li>The monastic wooden complex of Barsana</li>
       </ul><br>
-      <strong>Cultural immersion:</strong><ul style='padding-left:1.2em; margin:0;'>
+      <strong>Cultural immersion:</strong><ul>
         <li>Savor home-cooked Romanian dishes made from fresh, local ingredients</li>
         <li>Stay in a family-run guesthouse where hosts make their own cheese and cured meats.</li>
         <li>Engage with locals and discover traditional crafts like woodcarving and knitting</li>
@@ -149,7 +149,7 @@ const maramuresTabs = [
 <style scoped>
 .activity-details-section {
   background: #fff;
-  padding: 4rem 1rem 4rem 1rem;
+  padding: 4rem 2rem 4rem 2rem;
   color: #222;
 }
 .activity-details-container {

@@ -111,7 +111,7 @@ const galleryImages = [
 const transylvaniaTabs = [
   {
     label: `What’s Included`,
-    content: `<ul style='padding-left:1.2em; margin:0;'>
+    content: `<ul>
       <li>Full-time guide/driver</li>
       <li>All transportation in a modern, comfortable vehicle</li>
       <li>2 nights’ accommodation with breakfast</li>
@@ -122,7 +122,7 @@ const transylvaniaTabs = [
   {
     label: `Highlights of the Tour`,
     content: `You will visit Transylvania’s renowned cities: Brașov, Sibiu, and the Sighișoara Citadel, each featuring guided tours of their most significant landmarks.<br><br>
-    <strong>The standard itinerary includes:</strong><ul style='padding-left:1.2em; margin:0;'>
+    <strong>The standard itinerary includes:</strong><ul>
       <li>Sighisoara Citadel</li>
       <li>Viscri Village</li>
       <li>Bran Castle</li>
@@ -130,7 +130,7 @@ const transylvaniaTabs = [
       <li>Alba Iulia Citadel</li>
     </ul><br>
     <strong>The itinerary is flexible and can be customized to include additional sites such as:</strong>
-    <ul style='padding-left:1.2em; margin:0;'>
+    <ul>
       <li>Biertan Church</li>
       <li>Turda Salt Mine</li>
       <li>Libearty Bear Sanctuary</li>
@@ -146,7 +146,7 @@ const transylvaniaTabs = [
   },
   {
     label: `Booking Policy`,
-    content: `<ul style='padding-left:1.2em; margin:0;'>
+    content: `<ul>
       <li>A 30% deposit is required to secure your booking.</li>
       <li>Cancellation policy: Full refund available for cancellations made at least 7 days before the tour start date.</li>
     </ul>`
@@ -158,7 +158,7 @@ const transylvaniaTabs = [
 <style scoped>
 .activity-details-section {
   background: #fff;
-  padding: 4rem 1rem 4rem 1rem;
+  padding: 4rem 2rem 4rem 2rem;
   color: #222;
 }
 .activity-details-container {
